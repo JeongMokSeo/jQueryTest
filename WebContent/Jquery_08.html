@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("#alzio1").click(function() {
+		$("div#alzio2").show();	
+		//$("#alzio2").load("sample/loadfile.txt");
+		$("#alzio2").load("Jquery_00.html");
+	});
+	
+/* 	$.ajax({
+		url: "불러올 파일",   //콤마로 구분
+		dataType : "불러올 파일 타입",   //
+		success: function(data) {
+			불러올 파일 처리 명령
+		}
+	}); */
+	
+		$.ajax({
+		url: "sample/AjaxXML.xml", 
+		dataType : "xml",   //
+		success: function(data) {
+			$("item",data).each(function() {
+				$("dl").append("<dt><a href=" + $("link",this).text() +">" +$("title",this).text() +"</a></dt><dd>"
+						+ $("description",this).text() + "</dd>");
+			});
+		}
+	}); 
+	
+	//show();
+	//$.(셀렉터).show(속도, 콜백함수)
+	$("#alzio4").click(function(){
+		$("div#alzio3").show();	
+	})
+	
+	$("button#alzio6").click(function(){
+		$("div#alzio5").show('1000');//slow, normal, fast	 
+	})
+		
+	$("button#alzio8").click(function(){
+		$("div#alzio7").show('slow', function() {
+			$("img#alzio9").attr("src","img/alzioCI.jpg");
+		});	 
+	});
+	// $.(셀렉터).hide(속도, 콜백함수)
+	
+	$("button#on").click(function(){
+		$("div#alzio10").show('slow');
+	})
+	$("button#off").click(function(){
+		$("div#alzio10").hide('slow',function() {
+			alert("hide속성을 실습중입니다.");	
+		});	
+	});
+	
+	// $.(셀렉터).toggle(속도, 콜백함수)
+	$("button#alzio12").click(function(){
+		//$("div#alzio11").toggle();
+		$("div#alzio11").toggle('slow',function() {
+			alert("toggle을 실습중입니다.");	
+		});	
+	});	
+	
+	// slideUp() slideDown()
+	// $.(셀렉터).slideUp(속도, 콜백함수)
+	$("button#alzio14").click(function(){
+		if ($("div#alzio13").css("display") == "block") {
+			$("div#alzio13").slideUp("slow");
+		} else {
+			$("div#alzio13").slideDown("slow");
+		}
+	});		
+	
+	$("button#alzio16").click(function(){
+		$("div#alzio15").slideToggle("500");
+	});		
+	
+	$("button#alzio18").click(function(){
+		$("div#alzio17").fadeIn(1000,function() {
+			alert("fadeIn:출력 완료");	
+		});	
+	})
+	$("button#alzio19").click(function(){
+		$("div#alzio17").fadeOut("slow",function() {
+			alert("fadeOut:이미지가 사라졌습니다.");	
+		});	
+	});	
+	
+	//fadeTo(속도, 투명도(0:투명~1:완전불투명), 콜백함수) 투명도 설정가능
+	$("button#alzio21").click(function(){
+		$("div#alzio20").fadeTo("slow",1);	
+	});	
+	$("button#alzio22").click(function(){
+		$("div#alzio20").fadeTo("slow",0);	
+	});	
+	$("button#alzio23").click(function(){
+		$("div#alzio20").fadeTo("slow",0.5);	
+	});	
+	
+	//$(셀렉터).animate( {변경될 CSS속성},속도, 동작형태(linear or swing), 콜백함수);     
+	$("button#alzio25").click(function(){
+		$("p#alzio24").animate({marginLeft: "+=50px", fontSize : "50px"},1000, "swing");	
+	});	
+	$("button#alzio26").click(function(){
+		$("p#alzio24").animate({marginLeft: "0px", fontSize : "18px"},"fast", "linear");	
+	});	
+	
+});	
+
+</script>
+<style>
+ div {display:none;}
+</style>
+</head>
+<body>
+<button id="alzio1"> load </button>
+<div id="alzio2">제이쿼리 강의를 진행중입니다.</div>
+<hr>
+<dl></dl>
+
+<hr>
+<div id="alzio3"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio4"> show </button>
+<hr>
+<div id="alzio5"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio6"> 출력 </button>
+<hr>
+<div id="alzio7"><img id="alzio9" src="img/alzio_story.jpg" /></div>
+<button id="alzio8"> 출력 </button>
+<hr>
+<div id="alzio10"><img src="img/alzio_story.jpg" /></div>
+<button id="on"> 출력 </button>&nbsp;<button id="off"> 숨기기 </button>
+<hr>
+<div id="alzio11"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio12"> 토글 </button>
+<hr>
+<div id="alzio13"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio14"> 슬라이드 </button>
+<hr>
+<div id="alzio15"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio16"> 슬라이드 토글 </button>
+<hr>
+<div id="alzio17"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio18"> fadeIn </button>&nbsp;<button id="alzio19"> fadeOut </button>
+<hr>
+<div id="alzio20"><img src="img/alzio_story.jpg" /></div>
+<button id="alzio21"> 출력 </button>&nbsp;<button id="alzio22"> 숨기기 </button>&nbsp;<button id="alzio23"> 반투명 </button>
+<hr>
+<p id="alzio24">알지오</p><br>
+<button id="alzio25"> animate출력 </button>&nbsp;<button id="alzio26"> animate 되돌리기 </button>
+<hr>
+
+
+
+</body>
+</html>

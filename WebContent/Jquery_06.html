@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("#alzio2").click(function(){
+		//$("div").text($("#alzio1").val() + "입니다.");
+		//$("#alzio2").text("완료");
+		//$("input").val("");  //clear
+		
+		//$("#alzio1").val("이름을 적어주세요").css("color","#ccc").focus(function(){
+		//	$(this).val("").css("color","red");	
+		//});   //placeholder
+
+
+	});
+	
+	$("#alzio1").val("이름을 적어주세요").css("color","#ccc").one("focus",function(){
+		$(this).val("").css("color","#000");	//포커스 이동시에도 최초 한번만 공백 삭제 실행
+	}).blur(function(){
+		if($(this).val=="") {
+			$(this).val("입력해 주세요").css("color","#ccc").one("focus",function(){
+				$(this).val("").css("color","#000");		
+			});
+		}	
+	});  
+	
+	$("#alzio4").change(function() {
+		$("#alzio5").text($(this).val());
+	});
+	
+	$("form").submit(function() {
+		//if($("#alzio6").val()=="") {
+		if($("input[name='name0']").val() =="") {
+			$("input[name='name0']").css("border","1px solid red").after("<span id='alzioTemp'>이름을 입력해 주세요</span>");
+			$("#alzioTemp").css("color","red").fadeOut(3000);
+			return false;
+		}
+	});
+	
+	//필터
+ 	$(":input").focus(function() {
+		$(this).css("border","2px solid red");
+	}).blur(function() {
+		$(this).css("border","");	
+	});
+	
+ 	$(":text").focus(function() {
+		$(this).after("<strong id='alzioTemp0'>필수항목입니다.</strong>");
+	}).blur(function() {
+		$("#alzioTemp0").remove();	
+	});
+	
+ 	$(":password").focus(function() {
+		$(this).after("<strong id='alzioTemp0'>숫자 + 영문조합입니다.</strong>");
+	}).blur(function() {
+		$("#alzioTemp0").remove();	
+	});
+	
+ 	$(":radio").click(function() {
+ 		$("label").css("font-weight","");
+ 		$("label[for='"+ $(this).attr("id")+"']").css("font-weight","bold");
+ 	 	$("label").click(function() {
+ 	 		$("label").css("font-weight","");
+ 	 		$(this).css("font-weight","bold");
+ 		});
+ 		
+ 	});
+
+ 	$("#alzio11").click(function() {
+ 		$(":checkbox").attr("checked","checked");
+ 		return false;
+ 	})
+ 	
+ 	$(":submit").mouseover(function() {
+ 		$(":reset").after("<p>회원가입 하시겠습니까? </p>");
+ 		$("p").css("color","red");
+ 	}).mouseout(function() {
+ 		$("p").remove();
+ 	});
+ 	
+ 	$(":reset").mouseover(function() {
+ 		$(this).after("<p>초기화 하시겠습니까? </p>");
+ 		$("p").css("color","blue");
+ 	}).mouseout(function() {
+ 		$("p").remove();
+ 	});
+
+ 	
+	
+});	
+
+</script>
+<style>
+ .alzio1 {color:blue;}
+ .alzio2 {color:red;}
+ .alzio {background-color: orange;}
+</style>
+</head>
+<body>
+<div>이름을 적어주세요<input type="text" name="name" id="alzio1" ></div>
+<button id="alzio2">확인</button>
+<input type="text" name="name2" id="alzio3" placeholder="이름을 적어주세요">
+<hr>
+<select id="alzio4">
+	<option value="알지오1"> 알지오1</option>
+	<option value="알지오2"> 알지오2</option>
+	<option value="알지오3"> 알지오3</option>
+</select>
+<p><span id="alzio5">알지오1</span>을 선택하셨습니다.
+<hr>
+<form name="Frm" action="javascript:alert('전송완료');">
+<dl>
+	<dt> 아이디<em>(필수)</em></dt>
+	<dd><input type="text" id="alzio6" name="name0" /></dd>
+	<dt> 패스워드</dt>
+	<dd><input type="password" id="alzio7" name="pass" /></dd>	
+	<dt> 성별</dt>
+	<dd>
+		<input type="radio" id="man" name="gender" /><label for="man">남성</label>
+		<input type="radio" id="women" name="gender" /><label for="women">여성</label>
+	</dd>
+	<dt> 취미</dt>	
+	<dd>
+		<input type="checkbox" id="alzio8" /><label for="alzio8">음악감상</label>
+		<input type="checkbox" id="alzio9" /><label for="alzio9">영화감상</label>
+		<input type="checkbox" id="alzio10" /><label for="alzio10">운동</label>
+		<span><button id="alzio11">전부체크</button></span>
+	</dd>	
+	<dt> 자기소개</dt>
+	<dd><textarea id="alzio12" name="comment" ></textarea></dd>	
+
+</dl>
+<input type="submit"  value="확 인" />
+<input type="reset"  value="리 셋" />
+</form>
+<hr>
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 알지오 정석</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+	$("#bt1").click(function() {
+		var txt = "넓이와 높이 사이즈 입니다.<br>";
+		txt += "Width :" + $("#alzio1").width() + "<br>";
+		txt += "Height :" + $("#alzio1").height() + "<br>";
+		txt += "inner Width :" + $("#alzio1").innerWidth() + "<br>";
+		txt += "inner Height :" + $("#alzio1").innerHeight() + "<br>";
+		txt += "outer Width :" + $("#alzio1").outerWidth() + "<br>";
+		txt += "outer Height :" + $("#alzio1").outerHeight();
+		
+		$("#alzio1").html(txt);
+	});
+	//----------------------------------------------------------------------------------
+	$("#bt2").click(function() {
+		var txt = "Document 사이즈 입니다.\n\n";
+		txt += "width/height:" + $(document).width();
+		txt += "x" + $(document).height() + "\n";
+		txt += "Window width/height:" + $(window).width();
+		txt += "x" + $(window).height();
+		
+		alert(txt);
+	});
+	//----------------------------------------------------------------------------------
+	$("#bt3").click(function() {
+		$("#alzio3").width(200).height(200);
+		
+	});	
+	//----------------------------------------------------------------------------------
+	//$("span").parent().css({"color": "#000", "border" : "3px solid #000"});
+	//$("span").parents().css({"color": "#000", "border" : "3px solid #000"});
+	//$("span").parents("ul").css({"color": "#000", "border" : "3px solid #000"});
+	//$("span").parents("div").css({"color": "#000", "border" : "3px solid #000"});
+	$("span").parentsUntil("div").css({"color": "#000", "border" : "3px solid #000"});
+	
+	//----------------------------------------------------------------------------------
+	$("#bt5").click(function() {
+		//$("#alzio5").load("lod.txt");
+		//$("#alzio5").load("lod.html");
+		//$("#alzio5").load("lod.html #cal");
+		
+		//$("#alzio5").load("lod.html #cal", function(responseTxt, statusTxt, xhr){
+		//	if (statusTxt == "success") alert("로드 성공");
+		//	if (statusTxt == "error") alert("실패 사유:" + xhr.status + ": " + xhr.statusText);
+		//});
+		
+		$("#alzio5").load("lod.html", function(data, status){
+			alert("그대로" + data + "\nStatus:" + status);
+		});
+	});	
+	
+	//----------------------------------------------------------------------------------
+
+	//$("div").children().css({"color": "#000", "border" : "3px solid #000"})
+	//$("div").find("span").css({"color": "#000", "border" : "3px solid #000"})
+	//$("div").find("*").css({"color": "#000", "border" : "3px solid #000"})
+	//$("h1").siblings().css({"color": "#000", "border" : "3px solid #000"})  // 형제
+	//$("h1").siblings("span").css({"color": "#000", "border" : "3px solid #000"})  // 형제 중 span
+	//$("h1").next().css({"color": "#000", "border" : "3px solid #000"})  // h1 다음
+	//$("h1").nextAll().css({"color": "#000", "border" : "3px solid #000"})  // h1 
+	//$("h1").nextUntil("h2").css({"color": "#000", "border" : "3px solid #000"})  // h1 ~ h2
+	
+	//$("div p").first().css("color", "red");  // div 내 처음 p태그만 
+	//$("div p").last().css("color", "red");  // div 내 마지막 p태그만 
+	//$("div p").eq(3).css("color", "red");  // div 내 3번째 p태그만 
+	$("div p").filter(".f1").css("color", "red");  // div 내 class가 "f1"만 필터
+	//$("div p").not(".f1").css("color", "red");  // div 내 class가 "f1"만 이외 필터
+	
+	
+});
+
+</script>
+<style>
+	#alzio1 {font-size: 11px; padding: 30px; height: 100px; width: 300px; background-color: #ccc; border: 3px solid red;}
+	#alzio3 {font-size: 11px; padding: 30px; height: 50px; width: 100px; background-color: #ccc; border: 3px solid red;}
+	.alzio4 * {display:block; border: 1px solid #ccc; color: #ccc; padding: 15px; margin: 10px;}
+	.alzio5 {display:block; border: 1px solid #ccc; color: #ccc; padding: 15px; margin: 10px;}
+	.alzio6 {display:block; border: 1px solid #ccc; color: #ccc; padding: 15px; margin: 10px;}
+</style>
+</head>
+<body>
+
+<div id="alzio1"></div><br>
+<button id="bt1">버튼1</button>
+<hr>
+
+<button id="bt2">버튼2</button>
+<hr>
+
+<div id="alzio3"></div><br>
+<button id="bt3">버튼3</button>
+<hr>
+<div class="alzio4">
+	<div>증조할아버지
+		<ul> 할아버지
+			<li>부모
+				<span>자식</span>
+			</li>
+		</ul>
+	</div>
+	<div>할아버지
+		<p>부모
+			<span>자식</span>
+		</p>
+	</div>	
+</div>
+<hr>
+
+<div id="alzio5"  class="alzio5">jQuery 알지오 정석 h1</div>
+<button id="bt5">버튼5 load</button>
+<hr>
+
+<div class="alzio6">div
+	<p>p
+		<span>span</span>
+	</p>
+</div>
+<hr>
+<div class="alzio6">div
+	<p>p
+		<span>span</span>
+	</p>
+</div>
+<h1>h1</h1>
+<div class="alzio6">div
+	<p>p
+		<span>span</span>
+	</p>
+</div>
+<hr>
+<div>
+	<p> jQuery 알지오 p1 </p>
+	<p> jQuery 알지오 p2 </p>
+	<p> jQuery 알지오 p3 </p>
+	<p class="f1"> jQuery 알지오 p4 </p>
+	<p> jQuery 알지오 p5 </p>
+</div>
+</body>
+</html>

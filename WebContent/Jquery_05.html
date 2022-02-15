@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("p em").remove();
+	$("p:first").addClass("alzio1");
+	$("p").removeClass("alzio2");
+	//$("strong").css("color","red");
+	$("strong").css({
+		color:"green",
+		background: "#FFCC99",
+		fontSize: "2em"
+	});
+	
+	$("#alzio1").text("로딩후");
+	//$("p").click(function(){
+	//	$(this).slideUp();
+	//});
+	$("p").hover(function(){
+		$(this).addClass("alzio");
+	},function() {
+		$(this).removeClass("alzio");
+	});
+	
+	$("#alzio2").click(function() {
+		$("#alzio3").attr("src","img/alzioCI.jpg");
+	});
+	
+/* 	$("#alzio2").toggle(function() {
+		$("#alzio3").attr("src","img/alzio_story.jpg");
+	}, function() {
+		$("#alzio3").attr("src","img/alzioCI.jpg");		
+	}, function() {
+		$("#alzio3").attr("src","img/Xmas.jpg");		
+	}, function() {
+		$("#alzio3").attr("src","img/eat.jpg");		
+	}); */
+
+	$("#alzio3").mouseover(function(){
+		$(this).attr("src","img/alzioCI.jpg");
+	})
+	$("#alzio3").mouseout(function(){
+		$(this).attr("src","img/alzio_story.jpg");
+		$("#alzio2").html("MouseDown & MouseUp");
+	})
+	$("#alzio3").mousemove(function(e){
+		$("#alzio2").html("현재 X좌표:" + e.pageX + "<br> 현재 Y좌표:" + e.pageY );
+	})
+	
+	
+	
+/* 	$("a:eq(0)").click(function() {
+		$("#alzio3").attr("src","img/alzio_story.jpg");
+		return false;
+	});
+	$("a:eq(1)").click(function() {
+		$("#alzio3").attr("src","img/alzioCI.jpg");
+		return false;
+	});
+	$("a:eq(2)").click(function() {
+		$("#alzio3").attr("src","img/Xmas.jpg");
+		return false;
+	});
+	$("a:eq(3)").click(function() {
+		$("#alzio3").attr("src","img/eat.jpg");
+		return false;
+	}); */
+	$("a").click(function() {
+		$("#alzio3").attr("src", $(this).attr("href"));
+		return false;
+	});
+
+	$("#alzio4").mousedown(function() {
+		$(this).after("<p style='color:blue'>MouseDonw </p>");
+	});
+	$("#alzio4").mouseup(function() {
+		$(this).after("<p style='color:red'>MouseUp </p>");
+	});
+	
+/* 	$("span").toggle(
+		function() {
+			$(this).css("color","red").html("클릭1");
+		},
+		function() {
+			$(this).css("color","blue").html("클릭2");
+		},
+		function() {
+			$(this).css("color","black").html("알지오");
+		}
+	); */
+
+//	$("#alzio6").one("click", function() {  //한번만 적용됨
+//		alert("경고창이 나타납니다.");
+//	});
+	
+	//클릭안되게
+	$("#alzio6").click(function() {
+		alert("경고창이 나타납니다.");
+	});
+	$("#alzio6").unbind("click");
+	
+});
+
+</script>
+<style>
+ .alzio1 {color:blue;}
+ .alzio2 {color:red;}
+ .alzio {background-color: orange;}
+</style>
+</head>
+<body>
+
+<p><em>(제거해줄 태그)</em>알지오</p>
+<p class="alzio2"> 알지오 입니다. </p>
+<strong> 알지오입니다.</strong>
+<hr>
+<p id="alzio1" > 알지오입니다.</p>
+<p>알지오입니다. 1</p>
+<p>알지오입니다. 2</p>
+<p>알지오입니다. 3</p>
+<hr>
+<button id="alzio2">버튼</button><br>
+<img id="alzio3" src="img/alzio_story.jpg" /> 
+<hr>
+<div><a href="img/alzio_story.jpg">알지오 스토리</a></div>
+<div><a href="img/alzioCI.jpg">알지오 CI</a></div>
+<div><a href="img/Xmas.jpg">알지오 크리스마스</a></div>
+<div><a href="img/eat.jpg">알지오 먹거리</a></div>
+<hr>
+<button id="alzio4">MouseDown & MouseUp</button><br>
+<hr>
+<span >알지오 </span>
+<hr>
+<button id="alzio6">알지오 클릭이벤트</button><br>
+</body>
+</html>

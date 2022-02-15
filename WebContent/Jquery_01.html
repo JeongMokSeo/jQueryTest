@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 알지오 정석</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+	//$("span").click(function() {
+	//$("span").dblclick(function() {
+	//$("span").mouseenter(function() {
+	//$("span").mouseleave(function() {
+	//$("span").mousedown(function() {
+	//$("span").mouseup(function() {
+	//	$(this).hide();
+	//});
+	
+	//$("span").hover(function() {
+	//	alert("OK 1번!");
+	//},
+	//function(){
+	//	alert("OK 2번!");
+	//});
+	
+	$("input").focus(function(){
+		$(this).css("background-color","red");
+	});
+	$("input").blur(function(){
+		$(this).css("background-color","blue");
+	});
+	//$("p").on("click",function(){
+	//	$(this).hide();
+	//});
+	$("p").on({
+		mouseenter:function(){
+			$(this).css("background-color","red");
+		},
+		mouseleave:function(){
+			$(this).css("background-color","blue");
+		},
+		click:function(){
+			$(this).css("background-color","#9900ff");
+		}
+	});
+	
+	$("#hide").click(function() {
+		$("p").hide(1500);
+	})
+	$("#show").click(function() {
+		$("p").show(1500);
+	})
+	$("#toggle").click(function() {
+		//$("p").toggle(1500);       // fadeIn, fadeOut, fadeToggle
+		$("#ik1").fadeToggle();
+		$("#ik2").fadeToggle("slow");
+		$("#ik3").fadeToggle(3000);
+		$("#ik4").fadeToggle(5000);
+	})
+	
+	$("#alzio").click(function(){
+		$("#alzio2").slideDown(500);
+		$("#alzio3").slideUp(1000);
+		$("#alzio4").slideToggle(1500);
+	});
+	
+	$("#move").click(function() {
+		$("#ejdi").animate({
+			left:'150px',
+			height:"+=50px",
+			width:"+=50px",
+			opacity:'.3'
+			});			
+	});
+	
+	$("#start").click(function() {
+		$("#fel").slideDown(3000);
+	});
+	$("#stop").click(function() {
+		$("#fel").stop();
+	});
+	
+	
+});
+</script>
+</head>
+<body>
+<h1>*jQuery -> 자바 스크립트를 사용할수 있도록 하는 것.</h1><br>
+<p>JQuery 실무강의 [hide/show]</p><br>
+<button id="hide">숨김</button>
+<button id="show">나오기</button><br>
+
+<span>JQuery 실무강의 </span><br>
+<span>JQuery 실무강의 </span><br>
+<span>JQuery 실무강의 </span><br>
+
+<input type="text" name="aa" />
+<p id="ik1">p1</p>
+<p id="ik2">p2</p>
+<p id="ik3">p3</p>
+<p id="ik4">p4</p>
+
+<p>JQuery 실무강의 </p><br>
+<button id="toggle">toggle</button>
+
+<div id="alzio">menu</div>
+<div id="alzio2" style="display:none;">하부트리1</div>
+<div id="alzio3" >하부트리2</div>
+<div id="alzio4" >하부트리3</div>
+
+<button id="move">이동버튼</button>
+<div id="ejdi" style="position:relative;background:red;color:#fff;height:50px;width:50px;">이동</div>
+<button id="start">시작</button>/<button id="stop">멈춤</button><br>
+<div id="fel" style="display:none;background:#ccc;color:#fff;height:300px;">IT전문교육</div>
+
+</body>
+</html>

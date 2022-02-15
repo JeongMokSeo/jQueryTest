@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 알지오 정석</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+	$("button").click(function() {
+		//$("h1").hide();
+		//$("span").hide();
+		//$(this).hide();
+		//$("span.keid").hide();
+		//$("span:first").hide();
+		//$("ul li:first").hide();
+		//$("ul li:first-child").hide();
+		//$("[href]").hide();
+		//$("a[target='_top']").hide();
+		//$("a[target!='_top']").hide();
+		//$(":button").hide();
+		//$("tr:even").css("color","red");
+		$("tr:odd").css("color","red");
+	});
+});
+</script>
+</head>
+<body>
+<h1>*jQuery -> 자바 스크립트를 사용할수 있도록 하는 것.</h1><br>
+<span class="keid"> http://jquery.com/download/1</span><br>
+<span class="keid"> http://jquery.com/download/2</span><br>
+<span> http://jquery.com/download/3</span><br>
+<span> http://jquery.com/download/4</span><br>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<ul>
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+	<li>d</li>
+	<li>e</li>
+</ul>
+
+<a href="#">1</a> | <a href="#">2</a> | <a href="#" target="_top">3</a> | <a href="#">4</a><br>
+
+<table border=1>
+	<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>	
+	<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>	
+	<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>	
+	<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>	
+	<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>	
+</table>
+
+<button>click!</button>
+
+</body>
+</html>

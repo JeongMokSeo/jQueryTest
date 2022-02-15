@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 알지오 정석</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+//	$("button").click(function() {
+//		$("p").hide("slow",function(){
+//			alert("숨김완료");
+//		});	 */
+// 		$("p").hide(2000);
+//		alert("숨김완료"); */
+//		$("#kjkj").css("color","blue").slideUp("slow").slideDown("slow");
+//
+//	});
+/* 	$("#text").click(function() {
+		alert("웹문서:" + $("#fel").text());
+	});
+	$("#html").click(function() {
+		alert("소스그대로:" + $("#fel").html());
+	}); */
+
+/* 	$("button").click(function() {
+		//alert("입력값:" + $("#inin").val());
+		alert($("#lin").attr("href"));
+	}); */
+/*  	$("#bt1").click(function() {
+		$("#tt1").text("alzio");
+	}); 	
+ 	$("#bt2").click(function() {
+		$("#tt2").html("<b>IT</b>");
+	}); 	
+ 	$("#bt3").click(function() {
+		$("#tt3").val("1993");
+	}); 	 */
+/*  	$("#bt1").click(function() {
+		$("#tt1").text(function(i, origText) {
+			return "평생교육 | " + origText + " 신규 / 국내최고";
+		});
+	}); 
+	
+ 	$("#bt2").click(function() {
+		$("#tt2").html(function(i, origText) {
+			return "평생교육 | " + origText + " <b>신규 / 국내최고</b>";
+		});
+	});  */	
+	
+/* 	$("button").click(function() {
+		//$("#alzio").attr("href","http://www.alzio.co.kr/contents/Category_Main.php?gb=2&dp1=124&dp2=454");
+ 		$("#alzio").attr({
+			"href":"http://www.alzio.co.kr/contents/Category_Main.php?gb=2&dp1=124&dp2=454",
+			"title":"제이쿼리[실무]"
+		});
+		
+		$("#alzio").attr("href",function(i, origText) {
+			return origText + "/contents/package.html";
+		});
+	}); */
+	
+/* 	$("#bt1").click(function() {
+		//$("p").append("<b>텍스트추가</b>.");
+		$("p").prepend("<b>텍스트추가</b>.");
+	});
+	$("#bt2").click(function() {
+		//$("ol").append("<li>메뉴가추가됩니다.</li>");
+		$("ol").prepend("<li>메뉴가추가됩니다.</li>");
+	}); */
+	
+//	$("#bt1").click(function() {
+//		$("p").before("<b>before</b>");
+//	});	
+//	$("#bt2").click(function() {
+//		$("p").after("After");
+//	});	
+	
+/* 	$("button").click(function() {
+		//$("#alzio1").remove();
+		//$("#alzio1").empty();  //#alzio1의 자식요소 제거
+		//$("p").remove(".leod");
+		$("p").remove(".leod1, .leod2");
+		
+	}); */	
+	
+	$("button").click(function() {
+	//	$("h1, h5, span, p").addClass("reda");
+	//	$("div").addClass("bola a8");
+	//	$("p").removeClass("reda");
+		
+		//alert("백그라운드 컬러 =" + $("p").css("background-color"));
+		$("p").css("background-color","blue");
+		$("p").css("color",white);
+	
+	});	
+	
+	
+});
+
+/* function appendText(){
+	var txt1 = "<p>ALZIO</p>";
+	var txt2 = $("<p></p>").text("ALZIO 2");
+	var txt3 = document.createElement("p");
+	txt3.innerHTML= "ALZIO 3";
+	$("body").append(txt1,txt2,txt3);
+} */
+
+</script>
+<style>
+.bola {font-weight: bold; font-size: 50px;}
+.reda {color: red; font-size: 11px;}
+.a8 {background-color: #ccc;}
+</style>
+</head>
+<body>
+
+<p style="background-color:red" >컬러값</p>
+<p style="background-color:blue" >컬러값</p>
+<button>버튼</button>
+
+<!-- <h1>h1</h1>
+<h5>h5</h5>
+<p >알지오<b>IT</b> 전문교육 p</p>
+<span >알지오<b>IT</b> 전문교육 span</span>
+<div >알지오<b>IT</b> 전문교육 div</div>
+<button>버튼</button> -->
+
+
+<!-- <div style="height:300px; width:500px; background-color:#ccc;" id="alzio1">
+	<p class="leod1">알지오<b>IT</b> 전문교육 1</p>
+	<p>클래스 없어요</p>
+	<p class="leod2">알지오<b>IT</b> 전문교육 2</p>
+	<p class="leod3">알지오<b>IT</b> 전문교육 3</p>
+</div>
+
+<button>제거</button> -->
+
+<!-- <p>알지오<b>IT</b> 전문교육</p><br>
+<button id="bt1">before</button>
+<button id="bt2">after</button><br> -->
+
+
+<!-- <button onclick="appendText()">계속 추가됨</button>  -->
+
+<!-- <button id="bt1">text</button>
+<button id="bt2">html</button><br>
+<p>알지오<b>IT</b> 전문교육</p><br>
+<ol>
+	<li>MENU 1</li>
+	<li>MENU 2</li>
+	<li>MENU 3</li>
+</ol> -->
+
+
+<!-- <p><a href="http://www.alzio.co.kr" id="alzio">www.alzio.co.kr</a>
+<button>제이쿼리[실무]</button> -->
+
+<!-- <p id="tt1">알지오<b>IT</b>전문교육</p>
+<p id="tt2">알지오<b>IT</b>전문교육</p>
+<p><input type="text" id="tt3" value="OPEN"></p>
+<button id="bt1">text</button>
+<button id="bt2">html</button>
+<button id="bt3">vel</button> -->
+
+
+<!-- <a href="http://www.alzio.co.kr" id="lin">링크주소</a>
+<button>입력을 받어</button> -->
+<!-- <input type="text" id="inin" value="IT전문교육">  -->
+
+<!-- <button id="text">text</button> / <button id="html">HTML</button><br>
+<div id="fel">IT전문교육기관<B>알지오</B></div> -->
+
+<!-- <div id="kjkj">펑션</div>
+<button>숨김</button> -->
+<!-- <p>JQuery 알지오 정석</p> -->
+</body>
+</html>

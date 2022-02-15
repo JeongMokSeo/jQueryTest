@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+//	$("#menu a").click(function() {
+//		$("#main img").attr("src", $(this).attr("href"));
+//		return false;
+//	});
+	
+	$("#menu a").click(function() {
+		$("#main img").before("<img src='" + $(this).attr("href") + "' alt='' >");  //메인앞에 이미지 추가
+		$("#main img:last").fadeOut("fast", function () {   //마지막 이미지 숨기고, 삭제
+			$(this).remove();
+		});		
+		return false;    //a태그가 링크로 이동하는것을 삭제
+	});
+	
+	$("img.next").click(function() {
+		$("#menu .allpage").animate({"marginLeft" : "-=300px"}, "fast");
+	});
+	$("img.prev").click(function() {
+		$("#menu .allpage").animate({"marginLeft" : "+=300px"}, "fast");
+	});
+	
+	
+});	
+
+</script>
+<style>
+* {margin: 0; padding: 0;}
+#content { width: 980px; margin: 20px;}
+#menu { width: 300px;  float: left; overflow:hidden;}
+#menu li { width: 150px; float: left; }
+#menu li img{ border: 3px solid #000; }
+#menu .allpage{width:900px;}
+#menu .allpage .page {width:300px; float:left;}
+#menu p { clear: both; width: 300px; padding: 10px 0; text-align: center;}
+#menu p img {cursor:poinger;}
+#main { width: 650px; float: right;}
+#main img { border: 3px solid #000; position: absolute;}
+</style>
+</head>
+<body>
+
+<div id="content">
+	<div id="menu">
+		<div class="allpage">
+			<div class="page">
+				<ul>
+					<li><a href="img/alzio_story.jpg"><img src="img/alzio_story.jpg" width="140" height="105"></a></li>
+					<li><a href="img/alzioCI.jpg"><img src="img/alzioCI.jpg" width="140" height="105"></a></li>
+					<li><a href="img/eat.jpg"><img src="img/eat.jpg" width="140" height="105"></a></li>
+					<li><a href="img/Xmas.jpg"><img src="img/Xmas.jpg" width="140" height="105"></a></li>
+					<li><a href="img/birth.jpg"><img src="img/birth.jpg" width="140" height="105"></a></li>
+					<li><a href="img/alzioGift.jpg"><img src="img/alzioGift.jpg" width="140" height="105"></a></li>
+				</ul>
+			</div>
+			
+			<div class="page">
+				<ul>
+					<li><a href="img/alzioDC.jpg"><img src="img/alzioDC.jpg" width="140" height="105"></a></li>
+					<li><a href="img/book.jpg"><img src="img/book.jpg" width="140" height="105"></a></li>
+					<li><a href="img/dinner.jpg"><img src="img/dinner.jpg" width="140" height="105"></a></li>
+					<li><a href="img/gift.jpg"><img src="img/gift.jpg" width="140" height="105"></a></li>
+					<li><a href="img/hongsam.jpg"><img src="img/hongsam.jpg" width="140" height="105"></a></li>
+					<li><a href="img/pen.jpg"><img src="img/pen.jpg" width="140" height="105"></a></li>
+				</ul>
+			</div>
+			
+			<div class="page">
+				<ul>
+					<li><a href="img/remona.jpg"><img src="img/remona.jpg" width="140" height="105"></a></li>
+					<li><a href="img/usb.jpg"><img src="img/usb.jpg" width="140" height="105"></a></li>
+					<li><a href="img/white.jpg"><img src="img/white.jpg" width="140" height="105"></a></li>
+					<li><a href="img/soomi.jpg"><img src="img/soomi.jpg" width="140" height="105"></a></li>
+					<li><a href="img/alzio_story.jpg"><img src="img/alzio_story.jpg" width="140" height="105"></a></li>
+					<li><a href="img/alzioCI.jpg"><img src="img/alzioCI.jpg" width="140" height="105"></a></li>
+				</ul>
+			</div>
+		</div>
+		<p>
+			<img src="http://www.alzio.co.kr/bulletin/skin/sink/i_prev.gif" class="prev">
+			<img src="http://www.alzio.co.kr/bulletin/skin/sink/i_next.gif" class="next">
+		</p>
+	</div>
+	<div id="main">
+		<img src="img/alzio_story.jpg" >
+	</div>
+	
+	
+</div>
+
+
+</body>
+</html>

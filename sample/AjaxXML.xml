@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+        <channel>
+                <item>
+                        <title>자바스크립트 라이브러리, '제이쿼리(jQuery)' </title>
+                        <link>http://www.alzio.co.kr</link>
+                        <description><![CDATA[과거 브라우저의 (중략) 만나볼 수 있다.]]></description>
+               </item>
+               <item>
+                        <title> 알지오 웹표준, 이제는 실전이다! </title>
+                        <link>http://www.alzio.co.kr</link>
+                        <description><![CDATA[웹 업계에서는 지금 (중략) 현재진행형이다.]]></description>
+                </item>
+				<item>
+                        <title> 알지오 안드로이드 앱, 사랑받는 이유는 따로 있다? </title>
+                        <link>http://www.alzio.co.kr</link>
+                        <description><![CDATA[2012년. 바야흐로 (중략) 역시 기대된다.]]></description>
+                </item>
+        </channel>
+</rss>
