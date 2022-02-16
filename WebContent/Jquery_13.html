@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	$("dd:not(:first)").css("width","0px");
+	$("dt:first span").addClass("selected");
+	$("dl dt").click(function() {
+		if($("+dd",this).css("width") == "0px") {
+			$("dt:has(.selected) + dd").animate({"width":"0px"});  // : has  지정한 셀렉터에 일치하는 요소를 선택합니다.
+			$("+dd",this).animate({"width":"500px"});
+			$("dt span").removeClass("selected");
+			$("span", this).addClass("selected");
+		}
+	}).mouseover(function() {
+		$("span",this).addClass("over");
+	}).mouseout(function() {
+		$("span",this).removeClass("over");
+	});	
+	
+	
+	
+});	
+
+</script>
+<style>
+div { width:800px; height: 300px;}
+dl { width: 900px; height : 300px;}
+dt { width: 35px; height: 300px; float:left; border-left: 1px solid white;}
+dt span { display: block; width: 100%; height: 100%; color: #fff;}
+dd {margin: 0; width: 500px; height:300px; float:left; background:#E8E8D0; overflow:hidden;}
+dd p { width:460px; padding: 20px; font-size: 18px; line-height: 20px;}
+
+dt#ALZIO1 span { background: -webkit-gradient(linear, left bottom, left top, from(#666),to(#000)); }
+dt#ALZIO2 span { background: -webkit-gradient(linear, left bottom, left top, from(#666),to(#000)); }
+dt#ALZIO3 span { background: -webkit-gradient(linear, left bottom, left top, from(#666),to(#000)); }
+dt#ALZIO4 span { background: -webkit-gradient(linear, left bottom, left top, from(#666),to(#000)); }
+
+dt#ALZIO1 span.over { background: -webkit-gradient(linear, left bottom, left top, from(#aaa),to(#666)); }
+dt#ALZIO2 span.over { background: -webkit-gradient(linear, left bottom, left top, from(#aaa),to(#666)); }
+dt#ALZIO3 span.over { background: -webkit-gradient(linear, left bottom, left top, from(#aaa),to(#666)); }
+dt#ALZIO4 span.over { background: -webkit-gradient(linear, left bottom, left top, from(#aaa),to(#666)); }
+
+dt#ALZIO1 span.selected { background: #FFCC00; }
+dt#ALZIO2 span.selected { background: #FFCC00; }
+dt#ALZIO3 span.selected { background: #FFCC00; }
+dt#ALZIO4 span.selected { background: #FFCC00; }
+
+dt.over {
+	background: -webkit-gradient(linear, left bottom, left top, from(#98BADC),to(#6699cc)); 
+	cursor: pointer;
+  }
+dt.selected {
+	background: -webkit-gradient(linear, left bottom, left top, from(#999),to(#666)); 
+	cursor: default;
+	color:black;
+  }
+
+</style>
+</head>
+<body>
+<div>
+	<dl>
+		<dt id="ALZIO1"><span>1</span></dt>
+		<dd><p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</p></dd>
+		<dt id="ALZIO2"><span>2</span></dt>
+		<dd><p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</p></dd>
+		<dt id="ALZIO3"><span>3</span></dt>
+		<dd><p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</p></dd>
+		<dt id="ALZIO4"><span>4</span></dt>
+		<dd><p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</p></dd>
+	</dl>
+</div>
+
+</body>
+</html>

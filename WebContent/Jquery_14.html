@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	$("ul.content li:not(" + $(".tab li a.selected").attr("href") +")").hide();
+	$("ul.tab li a").click(function() {
+		$("ul.tab li a").removeClass("selected");
+		$(this).addClass("selected");
+		//$("ul.content li").hide();
+		//$($(this).attr("href")).show();
+		
+		//$("ul.content li").hide();
+		//$($(this).attr("href")).fadeIn();
+		
+		$("ul.content li").slideUp("fast");
+		$($(this).attr("href")).slideDown("fast");
+	
+	});	
+	
+	
+	
+});	
+
+</script>
+<style>
+#container{	width:500px;}
+ul.tab{ padding:0;}
+ul.tab li{	list-style-type:none;
+	width:100px;
+	height:40px;
+	float:left;
+	font-size:18px;
+	font-weight:bold;}
+ul.tab li:first-child a { -webkit-border-top-left-radius:10px; }
+ul.tab li:last-child a { -webkit-border-top-right-radius:10px; }
+ul.tab li a{ background:-webkit-linear-gradient(top, #FFF, #FFCC00);
+	display:block;
+	color:#999;
+	line-height:40px;
+	text-align:center;
+	text-decoration:none;
+	border:1px solid #FFCC00;}
+ul.tab li a.selected{	background:-webkit-linear-gradient(top, #FFCC00, #FFF);
+	color:#CC6699;
+	cursor:default;
+	border-bottom:none;}
+ul.content{	clear:both;
+	border:1px solid #FFCC00;
+	border-top:none;
+	padding:0;
+	background:#fff}
+ul.content li{ list-style-type:none;
+	padding:10px;
+	color:#333;
+	font-size:15px;}
+</style>
+</head>
+<body>
+<div id="container">
+	<ul class="tab">
+		<li> <a href="#alzio1" class="selected"> ALZIO 1</a></li>
+		<li> <a href="#alzio2"> ALZIO 2</a></li>
+		<li> <a href="#alzio3"> ALZIO 3</a></li>
+		<li> <a href="#alzio4"> ALZIO 4</a></li>
+		<li> <a href="#alzio5"> ALZIO 5</a></li>
+	</ul>
+	
+	<ul class="content">
+		<li id="alzio1">
+		<strong>ALZIO 1</strong>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</li>
+		<li id="alzio2">
+		<strong>ALZIO 2</strong>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</li>
+		<li id="alzio3">
+		<strong>ALZIO 3</strong>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</li>
+		<li id="alzio4">
+		<strong>ALZIO 4</strong>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</li>
+		<li id="alzio5">
+		<strong>ALZIO 5</strong>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>
