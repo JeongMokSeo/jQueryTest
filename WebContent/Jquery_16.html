@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강 툴팁</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	$(".tooltip").css({
+		opacity: "0.9",
+		position:"absolute",
+		display:"none"
+	});
+	
+	
+	$("a:not('#aa')").mouseover(function() {
+		$(".tooltip").fadeIn()
+	}).mouseout(function() {
+		$(".tooltip").fadeOut();
+	}).mousemove(function(e) {
+		$(".tooltip").css({
+			top: e.pageY+15 + "px",
+			left:e.pageX+15+"px"
+		});
+		
+	});
+	
+	$(" .tooltip2").css("opacity" , "0.9").hide();
+	$("#aa").mouseover(function() {
+		$(".tooltip2").fadeIn().css({
+			top:$(this).offset().top-55+"px",
+			left:$(this).offset().left-95+"px"
+		});		
+ 	}).mouseout(function(e) {
+		setTimeout(function(){
+			$("div.tooltip2").hide();
+		},2000);
+	});	
+	
+
+});	
+
+</script>
+<style>
+body {background: #000; color: white;}
+a:link, a:visited {color:#ffcc00; border-bottom: 1px dotted; text-decoration: none;}
+h2 { width: 80%; margin: 10% auto;}
+p {margin: 10px 10%; margin-top: 30px;}
+span.tooltip { line-height: 1.5; color: #000; width:250px; background: #00ccff; border-radius: 10px; padding: 1em; font-size: small;}
+
+div.tooltip2 { width: 250px; position: absolute;}
+div.tooltip2 p {  line-height: 1.5; margin: 0; font-size:small; background: url("img/tooltip.png") top right;
+    height: 50px; padding : 10px 10px 0 35px; color:#000;}
+
+</style>
+</head>
+<body>
+
+<h2>jQuery</h2>
+<p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 <a href="#">재적의원</a> <span class="tooltip" ><strong>알지오</strong> 홈페이지로 이동 합니다.</span> 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		
+</p>
+
+<p>
+		법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
+		국회는 헌법 또는 법률에 특별한 규정이 없는 한 <a id="aa" href="#">재적의원</a>과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
+		<div class="tooltip2" ><p><strong>알지오</strong> 홈페이지로 이동 합니다. </p></div> 
+</p>
+
+
+</body>
+</html>

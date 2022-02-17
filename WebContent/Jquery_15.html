@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	$("p.content").load($("ul.tab li a.selected").attr("href"));
+	$("ul.tab li a").click(function() {
+		$("ul.tab li a").removeClass("selected");
+		$(this).addClass("selected");
+		$("p.content").load($(this).attr("href"));
+		return false;	
+	});	
+
+});	
+
+</script>
+<style>
+#container{	width:500px;}
+ul.tab{ padding:0;}
+ul.tab li{	list-style-type:none;
+	width:100px;
+	height:40px;
+	float:left;
+	font-size:18px;
+	font-weight:bold;}
+ul.tab li:first-child a { -webkit-border-top-left-radius:10px; }
+ul.tab li:last-child a { -webkit-border-top-right-radius:10px; }
+ul.tab li a{ background:-webkit-linear-gradient(top, #FFF, #FFCC00);
+	display:block;
+	color:#999;
+	line-height:40px;
+	text-align:center;
+	text-decoration:none;
+	border:1px solid #FFCC00;}
+ul.tab li a.selected{	background:-webkit-linear-gradient(top, #FFCC00, #FFF);
+	color:#CC6699;
+	cursor:default;
+	border-bottom:none;}
+p.content{	clear:both;
+	border:1px solid #FFCC00;
+	border-top:none;
+	padding:10px;
+	background:#fff;
+	font-size: 15px;	
+	}
+
+</style>
+</head>
+<body>
+<div id="container">
+	<ul class="tab">
+		<li> <a href="sample/alzio1.txt" class="selected"> ALZIO 1</a></li>
+		<li> <a href="sample/alzio2.txt" > ALZIO 2</a></li>
+		<li> <a href="sample/alzio3.txt" > ALZIO 3</a></li>
+		<li> <a href="sample/alzio4.txt" > ALZIO 4</a></li>
+		<li> <a href="sample/alzio5.txt" > ALZIO 5</a></li>
+	</ul>
+	<p class="content"></p>
+</div>
+
+
+</body>
+</html>

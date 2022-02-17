@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery 2강 롤오버 </title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	$("img[src='img/ALZIO1.png']").mouseover(function(){
+		$(this).attr("src","img/ALZIO1_a.png");
+	}).mouseout(function(){
+		$(this).attr("src","img/ALZIO1.png");
+	});
+	
+	$("img[src='img/ALZIO2.png']").mouseover(function(){
+		$(this).attr("src","img/ALZIO2_a.png");
+	}).mouseout(function(){
+		$(this).attr("src","img/ALZIO2.png");
+	});
+	
+	$("img[src='img/ALZIO3.png']").mouseover(function(){
+		$(this).attr("src","img/ALZIO3_a.png");
+	}).mouseout(function(){
+		$(this).attr("src","img/ALZIO3.png");
+	});
+
+});	
+
+</script>
+<style>
+li{	display:inline;	list-style-type:none;}
+img{ border:none;	margin:0;padding:0;}
+
+</style>
+</head>
+<body>
+
+<ul>
+	<li><a href="#"><img src="img/ALZIO1.png" class="hover"></a></li>
+	<li><a href="#"><img src="img/ALZIO2.png" class="hover"></a></li>
+	<li><a href="#"><img src="img/ALZIO3.png" class="hover"></a></li>
+</ul>
+<hr>
+
+</body>
+</html>

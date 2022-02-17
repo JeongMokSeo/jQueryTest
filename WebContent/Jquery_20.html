@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>모달 윈도우</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("body").append("<div id='Black'></div><div id='Main'></div>");
+	
+	$("a.modal").click(function () {
+		$("#Black").show();
+		$("#Main").show().html("<img src='" + $(this).attr("href") + "' />");
+		return false;
+	});
+	
+	$("#Black").click(function() {
+		$(this).hide();
+		$("#Main").hide();
+	});
+	
+});	
+
+</script>
+<style>
+html,body{	margin:0;	padding:0;	height:100%;}
+h1{	margin:20px 50px;	font-size:large;	border-bottom:1px dotted #3366CC;	padding:10px;	width:600px;}
+ul{	width:700px;}
+ul li{	float:left;	list-style-type:none;}
+ul li img{	border:0;	margin:10px;}
+#Black {display:none; position: fixed; left:0; top:0; height: 100%; width: 100%; background: black; opacity: 0.7;}
+#Main {display:none; position: fixed; top: 50%; left:50%; margin-top: -144px; margin-left: -200px;}
+</style>
+</head>
+<body>
+
+<h1>jQuery : 모달윈도우 </h1>
+
+
+<ul>
+	<li><a href="img/alzio_story.jpg" class="modal"><img src="img/alzio_story.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/alzioCI.jpg" class="modal"><img src="img/alzioCI.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/book.jpg" class="modal"><img src="img/book.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/Xmas.jpg" class="modal"><img src="img/Xmas.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/usb.jpg" class="modal"><img src="img/usb.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/alzioGift.jpg" class="modal"><img src="img/alzioGift.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/pen.jpg" class="modal"><img src="img/pen.jpg" width="140" height="105"> </a></li>
+	<li><a href="img/birth.jpg" class="modal"><img src="img/birth.jpg" width="140" height="105"> </a></li>
+</ul>
+<!-- <div id="Black"></div>
+<div id="Main"> <img src="img/alzio_story.jpg" /></div> -->
+</body>
+</html>
