@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>슬라이딩 윈도우</title>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script src="jquery-1.7.2.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	//초기설정
+	$("#allpage").css("width",620 * $("#allpage .page").size() +"px" );
+    $("#allpage .page:last").prependTo("#allpage");
+ 	$("#allpage").css("margin-left","-620px");
+	 
+	//prev버튼(앞으로)
+	$("#Prev").click(function() {
+		$("#Next, #Prev").hide();
+		
+		$("#allpage").animate({
+			marginLeft:"+=620px"
+		},"slow","swing", function() {
+			//마지막 페이지를 앞으로 슬라이딩시킴	
+			$("#allpage").css("margin-left","-620px" );
+			$("#allpage .page:last").prependTo("#allpage");				
+			$("#Next,#Prev").show();
+		});
+	});
+	
+	//Next버튼(뒤로)
+	$("#Next").click(function() {
+		$("#Next, #Prev").hide();
+		
+		$("#allpage").animate({
+			marginLeft:"-=620px"
+		},"slow","swing", function() {
+			//첫 페이지를 마지막으로 슬라이딩시킴	
+			$("#allpage .page:first").appendTo("#allpage");	
+			$("#allpage").css("margin-left","-620px" );
+			$("#Next,#Prev").show();
+		});
+	});
+	
+
+
+	
+});	
+
+</script>
+<style>
+ * {margin:0; padding: 0;}
+ body {background: #999;}
+ #ALL { margin: 80px auto; width: 620px; height: 135px; background: #000; border-radius: 10px; position: relative;}
+ #Prev { position: absolute; top: 55px; left: -12px; cursor: pointer;}
+ #Next { position: absolute; top: 55px; right: -12px; cursor: pointer;}
+ #content { width: 100%; height: 100%;  overflow:hidden; }
+ #allpage .page { width: 605px; height: 100px; padding: 15px 0 15px 15px; list-style-type: none; float:left;}
+ #allpage .page li {float:left; margin-right: 10px;}
+ #allpage .page li img{ border:none;}
+ 
+
+</style>
+</head>
+<body>
+<div id="ALL">
+	<p id="Prev"><img src="img/prev.png"></p>
+	<p id="Next"><img src="img/next.png"></p>
+	<div id="content">
+		<div id="allpage">
+			<ul class="page">
+				<li> <a href="#"><img src="img/page1.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/alzio_story.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/alzioCI.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/book.jpg" width="140" height="105"></a></li>		
+			</ul>
+			<ul class="page">
+				<li> <a href="#"><img src="img/page2.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/remona.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/Xmas.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/white.jpg" width="140" height="105"></a></li>		
+			</ul>
+			<ul class="page">
+				<li> <a href="#"><img src="img/page3.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/pen.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/eat.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/dinner.jpg" width="140" height="105"></a></li>		
+			</ul>
+			<ul class="page">
+				<li> <a href="#"><img src="img/page4.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/birth.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/alzioDC.jpg" width="140" height="105"></a></li>
+				<li> <a href="#"><img src="img/alzioGift.jpg" width="140" height="105"></a></li>		
+			</ul>
+	
+		</div>	
+	
+	</div>
+</div>
+
+
+
+</body>
+</html>

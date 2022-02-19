@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>페이징 효과</title>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script src="jquery-1.7.2.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+
+	//초기상태
+	$("#content").load($(".number li a:first").attr("href")+"#content");
+	$(".number li a:first").addClass("selected");
+	
+	$(".number li a").click(function() {
+		$("#content").html('<p class="loading"><img src="img/Loading.gif"></p>');	
+		$("#content").data("file",$(this).attr("href"));
+		$("html,body").animate({scrollTop: $("h1").offset().top-20},"normal","swing",function() {
+			$("#content").load($("#content").data("file")+"#content");
+		});
+		$(".number li a").removeClass("selected");
+		$(this).addClass("selected");
+		return false;
+	});
+});	
+
+</script>
+<style>
+#ALL { width: 450px; margin: 20px auto;}
+.question { width: 450px; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+.question:after {content:"."; display: block; clear: both; visibility: hidden; height: 0};
+.question .info { padding: 5px; width: 400px; font-family: "돋움", Arial, Dotum, Sans-serif; line-height: 15px;}
+.question .info h2 {margin: 0; color: #3DABA3; font-size: 16px;}
+.question .info ul{ margin:0; padding: 10px 0 5px 15px;}
+.question .info ul li{ font-size: small; margin: 0;}
+.loading {text-align: center; margin:10px; position: absolute;top:200px; left: 350px;}
+.number {padding:10px; position: absolute; top:520px; left:350px;}
+.number li {display: inline;}
+.number li a {border: 1px solid #3DABA3; color: #3DABA3; font-weight: bold; margin: 2px; padding: 5px; text-decoration: none; outline:none; }
+.number li a.selected { background: #BAC6AC;}
+
+</style>
+</head>
+<body>
+
+<div id="ALL">
+	<h1>질문 & 답변</h1>
+	<div id="content">
+		<p class="loading"><img src="img/Loading.gif"></p>
+	</div>
+	<ul class="number">
+		<li><a href="sample/page1.html">1</a></li>
+		<li><a href="sample/page2.html">2</a></li>
+		<li><a href="sample/page3.html">3</a></li>
+	</ul>
+</div>
+
+</body>
+</html>

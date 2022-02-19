@@ -7,85 +7,57 @@
 <script >
 //$(document).ready(function(){
 $(function(){
-	
-	$("body").append("<div id='Black'></div><div id='Main'></div>");
-	$("dd").hide();
-	$("dt").click(function() {
-		$("#Black").show();
-		$("#Main").show().html($("+dd",this).html()).css({
-			marginTop:"-" +$("#Main").height() /2 +"px",
-			marginLeft:"-" +$("#Main").width() /2 +"px"
-		});
+	$(".open").click(function() {
+		$("#Window").fadeIn("fast");
 		return false;
 	});
 	
-	
-	$("#Black").click(function() {
-		$(this).hide();
-		$("#Main").hide();
+	$("#Window .close").click(function() {
+		$("#Window").fadeOut("fast");
+		return false;
 	});
+	
+	$("#Window dl dt").mousedown(function(e) {
+		$("#Window")
+			.data("clickPointX", e.pageX -$("#Window").offset().left)
+			.data("clickPointY", e.pageY -$("#Window").offset().top);
+		$(document).mousemove(function(e) {
+			$("#Window").css({
+				top:e.pageY - $("#Window").data("clickPointY") + "px",
+				left:e.pageX - $("#Window").data("clickPointX") + "px"
+			});
+		});	
+	}).mouseup(function() {
+		$(document).unbind("mousemove");
+	});
+	
+	
+
 	
 });	
 
 </script>
 <style>
+#Window { display: none; position: absolute; width: 455px; height: 364px; top: 100px; left: 100px;}
+#Window .close{ position: absolute; right: 15px; top: 7px;}
+#Window .close img { border: none;}
+#Window dl { width: 100%; height: 100%; background: url("img/window.png"); margin: 0;}
+#Window dl dt { height: 40px; line-height: 40px; text-indent:1em; color: #fff; font-weight: bold; cursor: move;  }
+#Window dl dd { margin: 0; padding: 2em; font-size: 15px; }
 
-html,body{
-	margin:0;
-	padding:0;
-	height:100%;	}
-h1{
-	margin:20px 50px;
-	font-size:large;
-	border-bottom:1px dotted #3366CC;
-	padding:10px;}
-dl dt{
-	margin:20px 50px;
-	font-size:large;
-	background: #66CCFF;
-	padding-left:10px;
-	width:400px;
-	cursor:pointer;}
-p{font-size:15px;
-	line-height:25px;}
-#Black{
-	display:none;
-	position:fixed;
-	left:0;
-	top:0;
-	height:100%;
-	width:100%;
-	background:#7BAEB5;
-	opacity: 0.75;	}
-#Main{
-	display:none;
-	width:400px;
-	background:white;
-	padding:10px;
-	position: fixed;
-	top:50%;
-	left:50%;
-	border-radius:10px;}	
 
 </style>
 </head>
 <body>
-
-<h1>jQuery : 모달윈도우 </h1>
-<dl>
-	<dt>여기를 클릭하세요 알지오 1</dt>
-	<dd><p><strong>알지오 1</strong>법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
-		대통령의 임기는 5년으로 하며, 중임할 수 없다.
-	</p></dd>
-	<dt>여기를 클릭하세요 알지오 2</dt>
-	<dd><p><strong>알지오 2</strong>지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
-		국회는 헌법 또는 법률에 특별한 규정이 없는 한재적의원과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 
-	</p></dd>
-	<dt>여기를 클릭하세요 알지오 3</dt>
-	<dd><p><strong>알지오 3</strong>
-		대통령의 임기는 5년으로 하며, 중임할 수 없다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다.
-		국회는 헌법 또는 법률에 특별한 규정이 없는 한재적의원과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
-	</p></dd>
-</dl>
+<a href="#Window" class="open">Floating Window</a>
+<div id="Window">
+	<a class="close" ><img src="img/close.png" /></a>
+	<dl>
+		<dt>플로팅 윈도우 만들기</dt>
+		<dd><p><strong>알지오 1</strong>법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대통령이 궐위되거나 사고로 인하여 직무를 수행할 수 없을 때에는 국무총리, 법률이 정한 국무위원의 순서로 그 권한을 대행한다.
+			대통령의 임기는 5년으로 하며, 중임할 수 없다.
+		</p></dd>
+	</dl>
+</div>
 </body>
 </html>
