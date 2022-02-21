@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery plugin</title>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.interface.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$('#alzio').Fisheye(
+			{
+				items: 'a',
+				container: '.container',
+				itemsText: 'span',
+				maxWidth: 120,
+				itemWidth: 80,
+				proximity: 90,                //마우스 반응영역
+				halign : 'center'
+			}
+		)
+
+});	
+
+</script>
+<style>
+	body {
+		background: #fff ;
+		padding: 0;
+		margin: 0;}
+	.alzio {
+		position: relative; 
+		top:100px;
+		height: 50px; 
+		text-align: center;}
+	.container {
+		position: absolute;
+		height: 50px;
+		margin-top:50px;
+		padding-left: 20px;}
+	a.item {
+		display: block;
+		color: #000;
+		position: absolute;
+		top: 0px;
+		text-align: center;
+		text-decoration: none;
+		font: bold 18px Arial, Helvetica, sans-serif;}
+	.item img {
+		border: none; 
+		margin: 5px 10px 0px; 
+		width: 100%; }
+	.item span {
+		display: none; 
+		padding-left:20px }
+
+</style>
+</head>
+<body>
+
+<div class="alzio" id="alzio">
+  <div class="container">
+	  <a class="item" href=""><img src="img/alzio_story.jpg" ><span>jQuery</span></a> 
+	  <a class="item" href=""><img src="img/alzioCI.jpg" ><span>웹표준</span></a> 
+	  <a class="item" href=""><img src="img/alzioDC.jpg"" ><span>웹표준[실무]</span></a> 
+	  <a class="item" href=""><img src="img/alzioGift.jpg" ><span>CSS2.1/3</span></a> 
+	  <a class="item" href=""><img src="img/birth.jpg" ><span>html5&css3</span></a> 
+	  <a class="item" href=""><img src="img/book.jpg" ><span>javascript</span></a>
+  </div> 
+</div>
+<!-- 
+			<div class="alzio" id="alzio">
+			  <div class="container">
+				  <a class="item" href=""><span>jQuery</span><img src="http://www.alzio.co.kr/img_file/builder/Date/201206129781jquery.jpg" ></a> 
+				  <a class="item" href=""><span>웹표준</span><img src="http://www.alzio.co.kr/img_file/builder/Date/200907205890css%C0%A5%C7%A5%C1%D8Season1.jpg" ></a> 
+				  <a class="item" href=""><span>웹표준[실무]</span><img src="http://www.alzio.co.kr/img_file/builder/Date/201008033617OK_cssS.gif" ></a> 
+				  <a class="item" href=""><span>CSS2.1/3</span><img src="http://www.alzio.co.kr/img_file/builder/Date/2011122296css_dictionary_01.jpg" ></a> 
+				  <a class="item" href=""><span>html5&css3</span><img src="http://www.alzio.co.kr/img_file/builder/Date/201101183081html5_01.jpg" ></a> 
+				  <a class="item" href=""><span>javascript</span><img src="http://www.alzio.co.kr/img_file/builder/Date/200907232983javascript2.jpg" ></a>
+			  </div> 
+			</div>  
+-->
+
+</body>
+</html>

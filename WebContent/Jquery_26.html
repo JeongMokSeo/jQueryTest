@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery plugin</title>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.corner.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("#alzio1").corner();	
+	$("#alzio2").corner("Bevel");	
+	$("#alzio3").corner("Bevel top").corner("Tear bottom");
+	$("#alzio4").corner("Bevel top").corner("Tear bottom 30px");
+
+	//Bevel/Notch/Bite/Cool/Sharp/Slide/Jut/Curl/Tear/Fray/Wicked/Sculpt/Long/Dog Ear/Dog2/Dog3//
+	//top/bottom/left/right/tl/tr/bl/br/	
+
+});	
+
+</script>
+<style>
+
+.alzio { background:#99cccc; width:200px; height:120px; }
+</style>
+</head>
+<body>
+
+<div id="alzio1" class="alzio"></div><br>
+<div id="alzio2" class="alzio"></div><br>
+<div id="alzio3" class="alzio"></div><br>
+<div id="alzio4" class="alzio"></div><br>
+
+</body>
+</html>
