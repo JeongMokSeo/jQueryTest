@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio</title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script src="jquery/jquery.effects.core.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	var minus = Math.round($(".item").width() / 2) * (-1);
+	var plus = minus * (-1);
+	var plus2 = plus * 2;
+	
+	$(".item").each(function() {
+		img = $(this).find('img').attr('src');
+		height = $(this).height() / 2;
+		
+		$("img",this).remove();
+		$(this).append('<div class="topLeft bar"></div><div class="topRight bar"></div><div class="bottomLeft bar"></div><div class="bottomRight bar"></div>');
+		
+		$(this).children("[class*='bar']").css("background-image","url("+ img +")").css("background-size","150px 110px");
+		
+		$(this).find('div.topLeft').css({width:plus,height:height, top:0, left:0});
+		$(this).find('div.topRight').css({width:plus,height:height, top:0, left:plus});
+		$(this).find('div.bottomLeft').css({width:plus,height:height, bottom:0, left:0});
+		$(this).find('div.bottomRight').css({width:plus,height:height, bottom:0, left:plus});
+
+	}).hover(function() {
+		$(this).find('div.topLeft').stop().animate({top:minus, left:minus},300,'jswing');
+		$(this).find('div.topRight').stop().animate({top:minus,left:plus2},300,'jswing');
+		$(this).find('div.bottomLeft').stop().animate({bottom:minus, left:minus},300,'jswing');
+		$(this).find('div.bottomRight').stop().animate({bottom:minus,left:plus2},300,'jswing');
+	},function() {
+		$(this).find('div.topLeft').stop().animate({top:0, left:0},1000,'easeOutBounce');
+		$(this).find('div.topRight').stop().animate({top:0, left:plus},1000,'easeOutBounce');
+		$(this).find('div.bottomLeft').stop().animate({top:height,left:0},1000,'easeOutBounce');
+		$(this).find('div.bottomRight').stop().animate({top:height,left:plus},1000,'easeOutBounce');
+	});
+
+});	
+
+</script>
+<style>
+	body { font-family: "돋움",Arial, Dotum, Sans-serif;}
+	.item { width:150px; height: 110px; border : 3px solid #222; margin : 4px; overflow: hidden; position: relative; float: left; }
+	.item .text { width:150px; height: 110px; background: #000; color: #fff; position: absolute; left :0; opacity: 0.7; z-index: 0;}
+	.item .text a { font-weight: bold; color: #FFCC00;  font-size: 16px; padding : 5px; display: block;}
+	.item .text p {  padding : 5px; margin: 0; font-size: 11px; }
+	.item img { border: 0; position: absolute;z-index: 100;}
+	.clear { clear : both;}
+	.bar { position: absolute; background-repeat: no-repeat; z-index: 100;}
+	.topRight { background-position: top right;}
+	.bottomLeft { background-position: bottom left;}
+	.bottomRight { background-position: bottom right;}
+</style>
+</head>
+<body>
+
+	<div class="item">
+		<a href="#"><img src="img/alzio_story.jpg" width="150" height="110"></a>
+		<div class="text">
+			<a href="">jQuery</a>
+			<p>모든 사람들이 전문적인 내용을 공부할 수 있도록 도와주는 일.</p>
+		</div>
+	</div>
+	<div class="item">
+		<a href="#"><img src="img/alzioCI.jpg" width="150" height="110"/></a>
+		<div class="text">
+			<a href="">HTML5&CSS3</a>
+			<p>모든 사람들이 전문적인 내용을 공부할 수 있도록 도와주는 일.</p> 
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="item">
+		<a href="#"><img src="img/alzioDC.jpg" width="150" height="110"/></a>
+		<div class="text">
+			<a href="">웹표준</a>
+			<p>모든 사람들이 전문적인 내용을 공부할 수 있도록 도와주는 일.</p>
+		</div>
+	</div>
+	<div class="item">
+		<a href="#"><img src="img/alzioGift.jpg" width="150" height="110"/></a>
+		<div class="text">
+			<a href="">jQuery UI</a>
+			<p>모든 사람들이 전문적인 내용을 공부할 수 있도록 도와주는 일.</p>
+		</div>
+	</div>
+
+
+</body>
+</html>

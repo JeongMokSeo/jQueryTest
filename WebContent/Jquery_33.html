@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio</title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	var min = 10;
+	var max = 16;
+	
+	var reset = $('p').css('fontSize');
+	var elm = $("p");
+	var size = str_replace(reset,'px', '');
+
+	$(".Plus").click(function() {
+		if (size < max) {
+			size++;
+			elm.css({'fontSize':size});
+		}
+		return false;
+	});
+
+	$(".Minus").click(function() {
+		if (size > min) {
+			size--;
+			elm.css({'fontSize':size});
+		}
+		return false;
+	});
+
+	$(".Reset").click(function() {
+		elm.css({'fontSize':reset});
+		size = str_replace(reset,'px', '');
+		return false;
+	});
+	
+	
+});	
+
+function str_replace(target, a, b) {
+	var ab = target.split(a);
+	return ab.join(b);
+}
+
+</script>
+<style>
+body { font-size:13px; font-family: "돋움",Arial, Dotum, Sans-serif;}
+a { color: #ccc; text-decoration: none; font-size: 15px;}
+a:hover { color:red;}
+
+
+</style>
+</head>
+<body>
+
+		<a href="#" class="Plus">가(+)</a> |
+		<a href="#" class="Reset">Reset</a> |
+		<a href="#" class="Minus">가(-)</a>
+		<p> 알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다. 뛰어난 강사들의 열정과 독창성으로 다져진 강의는 IT전문가의 가치를 더욱 높일 수 있습니다. 스마트 시대의 미래를 펼쳐 나가는 인재들을 위해 저희 알지오 클릭하면 알지오 홈페이지로 이동합니다.는 언제나 더 높은 가치와 품질을 제공하겠습니다. 감사합니다.</p>
+		<p class="title">jQuery로 편하게! 빠르게! 멋지게! 디자인하다!</p>
+		<p>최근 수년간 웹 시장에서 요구되는 능력은 크게 변화하고 있다. 과거에는 정적인 '디자인' 위주의 웹 제작이 주를 이루었지만 현재는 동적인 '프로그래밍' 위주의 웹 제작이 주를 이루고 있다. 이러한 웹 업계의 환경변화에 따라 과거에는 브라우저의 부가기능으로서만 취급되던 자바스크립트가 웹 업계 종사자에게 있어서 가볍게 지나쳐서는 안 될 프로그램언어로 급 부상하였고, 그와 동시에 자바스크립트 라이브러리인 제이쿼리 또한 굉장한 주목을 받고 있다.'제이쿼리(jQuery)'는 2006년 John Resic이 개발하여 공개된 이후 짧고 간결한 코딩으로 웹 디자이너와 웹 프로그래머 사이에 폭 넓게 사용되고 있다. 현재 웹 업계에 종사하는 전문가들도 이러한 대세를 따라가기 위해 제이쿼리를 교육받을 수 있는 업체를 원하고 있다.이러한 이유로 많은 웹 업계 전문가들이 IT전문가 교육기업 '알지오(www.alzio.co.kr)'를 찾고 있다고 한다. 알지오 제이쿼리 강좌는 서비스를 시작함과 동시에 뜨거운 관심을 받으며 그 인기를 유지하고 있다. 전문적이고 체계적으로 이루어진 알지오 제이쿼리 강좌는 군더더기 없이 중요 포인트만을 담고 있기 때문에 제이쿼리를 배우고자 하는 초보자부터, 실무에 종사하는 전문가들까지 두루두루 알차게 수강할 수가 있다.또한 알지오 jQuery 강좌는 해당 강사의 다년간에 걸친 경험과 노하우를 바탕으로 강의 기획과 제작에 심혈을 기울여 수강생들 사이에서 더욱 호평을 받고 있다. 제이쿼리를 이용해 웹 페이지에 생동감을 불어넣고 싶은 사람들이라면 알지오 제이쿼리 강좌에 관심을 가져보자.
+		</p>
+		<p class="link">기사원문 : http://media.daum.net/press/newsview?newsid=20120824121722943</p>
+
+
+
+</body>
+</html>
