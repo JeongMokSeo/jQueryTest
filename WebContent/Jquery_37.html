@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio </title>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	var paddingL = $("#menu li a").css("paddingLeft");
+	var paddingR = $("#menu li a").css("paddingRight");
+	
+	$("#menu li").mouseover(function() {
+		$(this).find("a").animate({paddingLeft: "20px", paddingRight: "20px"},{queue:false, duration:100})
+		.animate({backgroundColor: "#FFCC00"},{queue:false, duration:200});
+	}).mouseout (function () {
+		$(this).find("a").animate({paddingLeft: paddingL, paddingRight: paddingR },{queue:false, duration:100})
+		.animate({backgroundColor: "#1f1f1f"},{queue:false, duration:200});
+	});
+	
+	$("#scroll").mousemove(function(e) {
+		var scroll_top = parseInt($("#scroll").offset().top);
+		var mheight = parseInt($("#menu li").height() * $("#menu li").length );
+				
+		var top_value = Math.round((scroll_top - e.pageY) / 100 * mheight / 2.9);
+		$("#mouse_axis").html("X좌표:" + e.pageX + " , Y좌표:" + e.pageY + " , top_value:" +top_value);
+		$("#menu").animate({top:top_value}, {queue: false, duration:500});
+	});
+	
+	
+	
+});	
+</script>
+<style>
+body { font-family: "돋움" ,Arial,Dotum,Sans-serif; padding:0; margin: 0;}
+#scroll {height:400px; width: 300px; overflow: hidden; position: relative;}
+#menu { list-style: none; padding: 0; margin: 0; position: relative; top: 7px; height: 100%; width: 100%; }
+#menu li { display: block; text-align: right; padding: 10px 0; cursor: pointer;  }
+#menu li a { font-family: helvetica, Arial; font-size: 9px; font-weight:bold; text-decoration: none; background: #1f1f1f; color:#fff; padding: 20px 8px 5px 15px; }
+#menu li span {color: #999;}
+#mouse_axis {width: 300px; margin-left: 120px; color: #999;}
+</style>
+</head>
+<body>
+<h2>스크롤처럼 작동하는 메뉴</h2>
+<div id="scroll">
+	<ul id="menu">
+		<li><a href="#">ALZIO 1 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 2 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 3 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 4 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO  5 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 6 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 7 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 8 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 9 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 10 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO11 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 12 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 13 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 14 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO ALZIO 15 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO ALZIO ALZIO 16 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 17 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 18 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 19 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 20 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 21 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 22 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 23 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 24 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 25 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 26 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO 27 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO  28 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO 29 <span> / 20XX</span></a></li>
+		<li><a href="#">ALZIO ALZIO ALZIO 30 <span> / 20XX</span></a></li>
+	</ul>
+</div>
+<div id="mouse_axis"></div>
+</body>
+</html>

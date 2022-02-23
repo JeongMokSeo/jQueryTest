@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$("#menu .arrow").height($("#menu li").height());
+	var top = $("#menu .selected").position()["top"];
+	$("#menu .arrow").stop().animate({top:top}, 500);
+	
+	$("#menu li").hover(function() {
+		var top = $(this).position()["top"];
+		$("#menu .arrow").stop().animate({top:top}, 500);
+		$(this).addClass("hover");
+	},function() {
+		$(this).removeClass("hover");
+	});
+});	
+</script>
+<style>
+#menu { font-family: Arial; font-size:13px; position: relative; margin : 0 auto; width:180px; border : 1px solid blue;}	
+#menu ul { list-style:none; padding:0; margin:0; z-index: 5;}
+#menu li { background: #666; padding:5px; margin-bottom: 2px; cursor:pointer; }
+#menu li a { text-decoration:none; color:#FFF;}
+#menu .arrow {position: absolute; top:0; left:185px; z-index:10; 
+                   background:url(http://www.alzio.co.kr/build/images/no2.gif) no-repeat 0 7px;
+                   width : 16px; padding: 4px; } 
+#menu li.hover { background: #FFCC00;}
+#menu li.hover a { color: #666;}
+
+</style>
+</head>
+<body>
+<br/><br/><br/>
+<div id="menu">
+	<ul>
+		<li><a href="#">ALZIO 1</a></li>
+		<li><a href="#">ALZIO 2</a></li>
+		<li class="selected"><a href="#">ALZIO 3</a></li>
+		<li><a href="#">ALZIO 4</a></li>
+		<li><a href="#">ALZIO 5</a></li>
+		<li><a href="#">ALZIO 6</a></li>
+	</ul>
+	<div class="arrow"></div>
+</div>
+</body>
+</html>

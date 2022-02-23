@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio</title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+	$(".fade").hover(function() {
+		var fade = $("> div", this);
+		if (fade.is(":animated")) {
+			fade.stop().fadeTo(250,1);
+		} else {
+			fade.fadeIn(250);
+		}
+	},function() {
+		var fade = $("> div", this);
+		if (fade.is(":animated")) {
+			fade.stop().fadeTo(3000, 0);
+		} else {
+			fade.fadeOut(3000);
+		}
+	});
+	
+	
+});	
+
+
+</script>
+<style>
+body { margin : 10px; padding: 0; font:1em "Trebuchet MS", verdana, arial, sans-serif; font-size:100% }
+h1 { margin-left:55px;}
+a img { border: 0; }
+.fade { position : absolute; top;100px; left: 100px; }
+.fade div { position: absolute; top:0; left:0; display:none;}
+
+
+</style>
+</head>
+<body>
+<h1>Fade를 사용한 이미지 대체효과</h1>
+
+<div class="fade">
+	<img src="img/Xmas1.jpg" alt="Xmas" />
+	<div>
+		<img src="img/Xmas.jpg" alt="Xmas" />
+	</div>
+</div>
+
+</body>
+</html>

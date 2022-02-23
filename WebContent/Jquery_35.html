@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio</title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+//$(document).ready(function(){
+$(function(){
+var top = $("#menu li a").css("top");
+	$("#menu li.selected").children('a').stop().animate({top:0},500, 'easeOutQuad');	
+	$("#menu li").hover(function() {
+		$(this).children('a').stop().animate({top:0},500, 'easeOutQuad');
+	},function() {
+		$(this).children('a').stop().animate({top:top},500, 'easeOutQuad');
+		$("#menu li.selected").children('a').stop().animate({top:0},500, 'easeOutQuad');	
+	})
+	$("#menu li.selected").hover(function() {
+		$(this).children('a').stop().animate({top:top},500, 'easeOutQuad');
+	},function() {
+		$(this).children('a').stop().animate({top:0},500, 'easeOutQuad');
+	})
+});	
+</script>
+<style>
+#menu { list-style:none; height:70px; width:500px; padding:0; margin:0 auto;}
+#menu li { float: left; width:125px; height: 70px; position : relative; overflow: hidden; }
+#menu li a { position : absolute; top:20px; background:url(img/ALZIObutton.jpg) no-repeat; width:125px; height:70px; display:blcok; text-indent: -999em;   }
+</style>
+</head>
+<body>
+<br/><br/><br/>
+<ul id="menu">
+	<li class="itme1"><a href="#">Item 1 </a></li>
+	<li class="itme2"><a href="#">Item 2 </a></li>
+	<li class="itme3 selected"><a href="#">Item 3 </a></li>
+	<li class="itme4"><a href="#">Item 4 </a></li>
+</ul>
+
+</body>
+</html>
