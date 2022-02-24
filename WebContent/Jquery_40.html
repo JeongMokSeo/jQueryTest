@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+$(document).ready(function(){
+	$("#menu > li").bind("mouseenter", function() {
+		var $el = $(this);
+		$el.find("img").stop().animate({"width":"170px", "height":"130px", "left":"0px"},400, "easeOutBack")
+		.andSelf().find(".text").stop().animate({"top":"200px"}, 500, "easeOutBack")
+		.andSelf().find(".active").stop().animate({"height":"170px"},300,
+			function() {
+				var $sub_menu = $el.find(".submenu");
+				if($sub_menu.length) {
+					var left = "170px";
+					if ($el.parent().children().length == $el.index() + 1) {
+						var left = "-170px";
+					}
+					$sub_menu.show().animate({"left":left},200);
+				}
+			})
+		
+	}).bind("mouseleave",function() {
+		var $el = $(this);
+		var $sub_menu = $el.find(".submenu");
+		
+		if($sub_menu.length) {
+			$sub_menu.hide().css("left","0px");
+		}
+		$el.find(".active").stop().animate({"height":"0px"},300)
+		.andSelf().find("img").stop().animate({"width":"0px", "height": "0px", "left":"85px"},400)
+		.andSelf().find(".text").stop().animate({"top":"25px"},500);
+	}) ;
+
+});	
+</script>
+<style>
+body { background: #333; font-family: "돋움", Arial; border: 1px solid red;}
+.ALL { width: 700px; margin: 0 auto;}
+h1 { height: 69px; color:#C4D595;}
+ul.menu { margin: 0; padding: 0; list-style: none; font-family: "Myriad Pro", "Trebuchet MS", sans-serif;}
+ul.menu a { text-decoration: none;}
+ul.menu li { width: 170px; float: left; height: 85px; position: relative;}
+ul.menu li > a { position: absolute; top:0px; left: 0px; width: 170px; height: 85px; background: #000; }
+ul.menu li a img {position: absolute; bottom:0px; left: 85px; z-index:100; width:0px; height: 0px;  }
+ul.menu li span.text { position: absolute; top:22px; left:0px; width:170px; height: 60px; z-index: 50;} 
+ul.menu li span.active {position:absolute; top:80px; left:0px; background: #111; width:170px; height: 0px; z-index: 10;}
+
+ul.menu li span span.text_name,
+ul.menu li span span.text_subname,
+ul.menu li div.submenu a{margin-left: 15px; text-transform: uppercase; text-shadow: 1px 1px 1px #000;}
+ul.menu li span span.text_name { color: #fff; font-size: 20px;}
+ul.menu li span span.text_subname { color: #C4D595; font-size: 10px; letter-spacing: 1px; float: left; }
+ul.menu li div.submenu { width: 170px; height: 170px; background: #222; position: absolute; top:85px; left:0px; display: none;}
+ul.menu li div.submenu a { float: left; clear:both; line-height: 30px; color: #99CC33;}
+ul.menu li div.submenu a:first-child {margin-top: 18px;}
+ul.menu li div.submenu a:hover { color:#fff;}
+
+</style>
+</head>
+<body>
+
+<div class="ALL">
+	<h1>슬라이딩되는 박스메뉴</h1>
+
+	<ul id="menu" class="menu">
+		<li>
+			<a href="#">
+				<img src="img/alzioCI.jpg" alt=""/>
+				<span class="active"></span>
+				<span class="text">
+					<span class="text_name">jquery</span>
+					<span class="text_subname">alzio Project</span>
+				</span>
+			</a>
+			<div class="submenu">
+					<a href="#">menu-1</a>
+					<a href="#">menu-2</a>
+					<a href="#">menu-3</a>
+			</div>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/jqueryUI.jpg" alt=""/>
+				<span class="active"></span>
+				<span class="text">
+					<span class="text_name">jquery UI</span>
+					<span class="text_subname">alzio Project file</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/jQuery_Mobile.jpg" alt=""/>
+				<span class="active"></span>
+				<span class="text">
+					<span class="text_name">jquery Mobile</span>
+					<span class="text_subname">alzio Project file</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/soomi.jpg" alt=""/>
+				<span class="active"></span>
+				<span class="text">
+					<span class="text_name">Download</span>
+					<span class="text_subname">alzio Project file</span>
+				</span>
+			</a>
+			<div class="submenu">
+				<a href="#">menu-1</a>
+				<a href="#">menu-2</a>
+				<a href="#">menu-3</a>
+				<a href="#">menu-4</a>
+			</div>
+		</li>
+	</ul>
+</div>
+					
+</body>
+</html>

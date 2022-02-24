@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+$(document).ready(function(){
+//$(function(){
+	var $allDT = $("dt").css({padding:5, "cursor":"pointer"});
+	var $allDD = $("dd").css({position: "relative", top: -1, left:0, display: "none"});
+
+	$("#ALL").delegate("a","click",function(e) {
+		if (!$(this).parenet().hasClass("shadow")) {
+			e.preventDefault();
+			$(this).next().find("dt:first").click();
+		}
+	});
+
+	$("#ALL").delegate("dt","click",function(e) {
+		$el = $(this);
+		
+		if (!$el.hasClass("current")) {
+			$parentWrap = $el.parent().parent();
+			$otherWraps = $(".list").not($parentWrap);
+			$allDT = $("dt").not(this);
+			
+			$allDD.slideUp();
+			$allDT.animate({fontSize:"14px", padding: 5});
+			
+			$allDT.animate({fontsize:"14px", padding:5});
+		
+			$el.animate({fontSize:"20px", paddingTop:10, paddingRight:5, paddingBottom: 5, paddingLeft:5}).next().slideDown();
+		
+			$parentWrap.animate({width: 320}).addClass("shadow");
+			$otherWraps.animate({width: 135}).removeClass("shadow");
+			
+			$allDT.removeClass("current");
+			$el.addClass("current");
+		}
+	});
+	
+	$("#opener").trigger("click");
+
+});	
+</script>
+<style>
+* { margin:0; padding:0;}
+body {background:#eee; font:14px Georgia, serif;}
+#ALL { width: 600px; margin:0 auto; overflow: hidden; padding-left: 5px; }
+.list { width: 135px; float:left;}
+.list h2 { font-weight:normal; padding: 25px 0; text-align:center;}
+.image { display: block; height: 120px; text-indent : -9999px; border-right: 1px solid white;}
+.jqueryM { border-right : none; }
+.jqueryUI { background: url(img/page1.jpg) center -70px no-repeat;}
+.jquery { background: url(img/page2.jpg) center -70px no-repeat;}
+.jqueryM { background: url(img/page3.jpg) center -70px no-repeat;}
+dt { background: #000; color: white; padding: 5px; text-align:center; border-bottom: 1px solid white; border-right: 1px solid white; }
+.list:last-child dt {border-right : none;  } 
+dd { background: #999; color:white; padding: 10px; border-bottom: 1px solid white; border-right: 1px solid white; display:none;}
+.list:last-child dd {border-right : none;  } 
+
+dt:nth-of-type(1) { background: #0C628F;}
+dd:nth-of-type(1) { background: #0C628F;}
+dt:nth-of-type(2) { background: #CC0033;}
+dd:nth-of-type(2) { background: #CC0033;}
+dt:nth-of-type(3) { background: #FFB03B;}
+dd:nth-of-type(3) { background: #FFB03B;}
+dt:nth-of-type(4) { background: #000;}
+dd:nth-of-type(4) { background: #000;}
+
+.shadow {-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);}
+</style>
+</head>
+<body>
+<div id="ALL">
+	<div class="list">
+		<h2>jQuery UI</h2>
+		<a class="image jqueryUI" href="http://www.sjmworld.net" >View Image</a>
+		<dl>
+			<dt>jQuery UI</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery UI</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery UI</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery UI</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+		</dl>
+	</div>
+	<div class="list">
+		<h2>jQuery</h2>
+		<a class="image jquery" href="http://www.sjmworld.net" >View Image</a>
+		<dl>
+			<dt>jQuery</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt id="opener">jQuery</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+		</dl>
+	</div>
+	<div class="list">
+		<h2>jQuery Mobile</h2>
+		<a class="image jqueryM" href="http://www.sjmworld.net" >View Image</a>
+		<dl>
+			<dt>jQuery Mobile</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery Mobile</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery Mobile</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+			<dt>jQuery Mobile</dt>
+			<dd>알지오는 IT전문가들을 위한 교육 시스템을 기반으로하는 온라인 교육 기업의 대표 브랜드입니다.</dd>
+		</dl>
+	</div>
+	
+</div>
+			
+</body>
+</html>

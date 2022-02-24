@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+$(document).ready(function(){
+//$(function(){
+	$(".menu ul li a").hover (function() {
+		if($(this).is(":animated")){
+			$(this).stop().animate({width:"310px"}, 450, "easeOutQuad");
+		} else {
+			$(this).stop().animate({width:"310px"}, 400, "easeOutQuad");		
+		}
+	},function() {
+		if($(this).is(":animated")){
+			$(this).stop().animate({width:"78px"}, 450, "easeOutQuad");
+		} else {
+			$(this).stop(":animated").animate({width:"78px"}, 400, "easeOutQuad");		
+		}
+	});
+});	
+</script>
+<style>
+body { margin:0; padding:0; color: #666; background-color: #EDEDED;}
+h1 { padding: 5px 0 0 30px; font: bold 25px/1.5em "Trebuchet MS", Trebuchet, Arial, Verdana, Sans-serif; text-transform:uppercase;} 
+.menu { width:670px; height:200px; overflow:hidden;}
+.menu ul {list-style: none; margin0; display:block; height:200px; width:1340px;}
+.menu ul li { float: left;}
+.menu ul li a {
+    font: bold 25px/1.5em "Trebuchet MS", Trebuchet, Arial, Verdana, Sans-serif; 
+	color : #999; text-decoration: none; background:#FFFFFF; display : block; 
+	width:78px; height:200px; border-right: 2px solid #EDEDED;
+	}
+.menu ul li.menu1 a { background: url(img/birth.jpg) no-repeat scroll 0%; background-size: 310px 200px;}	
+.menu ul li.menu2 a { background: url(img/alzioGift.jpg) no-repeat scroll 0%; background-size: 310px 200px;}	
+.menu ul li.menu3 a { background: url(img/remona.jpg) no-repeat scroll 0%; background-size: 310px 200px;}	
+.menu ul li.menu4 a { background: url(img/Xmas.jpg) no-repeat scroll 0%; background-size: 310px 200px;}	
+.menu ul li.menu5 a { background: url(img/alzioCI.jpg) no-repeat scroll 0%; background-size: 310px 200px; min-width: 310px;}	
+
+</style>
+</head>
+<body>
+	<h1>JQuery Image Menu</h1>
+	<div class="menu">
+		<ul>
+			<li class="menu1"><a href="#">menu1</a></li>
+			<li class="menu2"><a href="#">menu2</a></li>
+			<li class="menu3"><a href="#">menu3</a></li>
+			<li class="menu4"><a href="#">menu4</a></li>
+			<li class="menu5"><a href="#">menu5</a></li>
+		</ul>
+	</div>
+			
+</body>
+</html>
