@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+
+	// nodeType  노드의 유형을 지정하는 정수값을 반환 node 종류 12가지 1 요소  ,2 속성, 3: 텍스트
+	//$("p.a6").contents().filter(function() {
+	//	return this.nodeType !==1;
+	//}).wrap("<b><i></i></b>");
+	$("p.a6").contents().filter(function() {
+		return this.nodeType !==2;
+	}).wrap("<b><i></i></b>");	
+	
+	//.end()  선택된 개체의 종전
+	//$("div").find(".a7").css("border","1px #FF9900 solid");
+	//$("body").find(".a7").css("border","1px #FF9900 solid");
+	//$("div").find(".a7").end().css("border","1px #FF9900 solid");
+	//$("body").find(".a7").end().css("border","1px #FF9900 solid");
+	
+	//alert($("div").filter(".a7").text());
+	//alert($("div").filter(".a7").end().text());
+	
+	//.after  대상뒤에 새로운 요소를 추가하는 메서드
+	$("p").after("<b>alzio</b>");
+	
+	//ajaxComplete() ajax 완료후 작동
+	//$(document).ajaxComplete(function() {
+	//	$(".a10").text("로드 OK");
+	//});
+	$(".a8").click(function() {
+		$(".a9").load("lod.html");
+	})
+	
+	
+	//.ajaxError ajax실행 에러 발생시
+	$(document).ajaxError(function() {
+		$(".a10").text("없어");
+	});	
+	$("button.abn").on("click", function() {
+		$(".a9").load("lod.htm");
+	});
+	
+	// .ajaxSend() 
+	$(document).ajaxSend(function(e,xhr,opt) {
+		$("div.a11").append("<b>링크는:"+opt.url + "</b><br>");
+	})
+	$("button.aaa").click(function() {
+		$("div.a11").load("lod.html");
+	});
+	
+	
+	
+});	
+</script>
+<style>
+
+
+
+
+</style>
+</head>
+<body>
+
+<p class="a6">jQuery API 알지오 정석</p>	
+<hr>
+<div class="a7">	jQuery API 알지오 정석	</div>
+<div>jQuery API 알지오 정석</div>
+<hr>	
+<button class="abn">버튼</button>
+<div class="a8">a8</div>
+<div class="a9">a9</div>
+<div class="a10">a10</div>
+<hr>	
+<button class="aaa">버튼</button>
+<div class="a11">a11</div>
+
+
+</body>
+</html>
