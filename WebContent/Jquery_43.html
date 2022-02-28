@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script >
+$(document).ready(function(){
+	//ajaxStart : ajax실행여부만 따짐, 성공 실패는 관계없이 실행됨.
+	//ajax실행전 연출 때 사용  로딩중..... 실행중.... 이런 이미지... 로딩 끝나면 없어짐.
+	$(document).ajaxStart(function() {
+		//$(".a2-1").show();
+		$(".a2-4").text("START");
+	});
+	
+	$("button.b1").click(function(){
+		$(".a2-2").load("lod.htm");
+	});
+
+	$(".a2-3").click(function(){
+		$(".a2-5").load("lod.html");
+	});
+
+	//ajaxStop()  모든ajax요청이 완료될때 핸들러가 호출이 될 수 있도록 등록하는 메서드. 
+	$(document).ajaxStop(function() {
+		$(".a2-6").hide();
+	});
+	
+	//ajaxSuccess()  ajax요청이 성공적으로 완료될때 마다, 실행하는 함수를 지정하는 메서드
+	$(document).ajaxSuccess(function() {
+		$(".a2-7").text("성공함");
+	});	
+	
+	//var elementCount=$("*").css("color","red").length;
+	var elementCount=$(".a2-6").find("*").css("color","red").length;
+	$("body").prepend("<p>" + elementCount + "입니다.</p>");
+	
+	//andSelf()  
+	$(".a2-8").nextAll().andSelf().css("color","blue");
+	
+	//.animate()
+	$("button.b2").click(function(){
+		$(".a2-9").animate({height: "300px"});
+	});
+	$("button.b3").click(function(){
+		$(".a2-9").animate({width:"50%",height: "100px",opacity:.3,marginLeft:"15px",fontSize:"50px"},2000);
+	});
+	
+	$("button.b4").click(function(){
+		$(".a2-10").animate({"left" : "+=30px"},500);
+	});
+	$("button.b5").click(function(){
+		$(".a2-10").animate({"left" : "-=30px"},500);
+	});
+	
+	
+	$("button.b6").click(function(){
+		$(".a2-11").animate({width: "70%"},{queue:false, duration:500})
+		.animate({fontSize:"30px"},1000);
+	});
+	//complete 움직임이 완료되면 실행될 함수를 호출
+	//easing 움직임에 변화를 주는 함수를 호출
+	//duration 움직임이 발생할 시간이 결정하는 문자열과 숫자
+	//properties css로 제어 가능한 속성과 값의 객체로 애니메이션으로 이동합니다.
+
+	//animated Selector
+	$("button.b7").click(function(){
+		$(".a2-12").toggleClass("a2-12red");
+	});
+
+	function animatelt(){
+		$(".a2-12").slideToggle("slow",animatelt);
+	}
+
+	//animatelt();
+	
+	//$("div.a2-13").append("<b>ALZIO</b>입니다.");
+	$("div.a2-13").append(document.createTextNode("ALZIO입니다."));
+	
+	$("div.a2-14").append($("b.a2-15"));
+	
+	$("h3").appendTo("span");  //span이 h3 앞으로 감
+	
+	$("<span>&nbsp;&nbsp;&nbsp;&nbsp;IT전문교육</span>").appendTo(".a2-16");  
+	
+	//attr()  속성  가져오기, 추가하기
+	var aclass = $("h4").attr("class");
+	$(".a2-18").text(aclass);
+	
+	$("button.b8").click(function(){
+		$("img.a2-19").attr("width","70%");
+	});
+	
+	$("p.a2-20").after("<b>ALZIO</b>");  //  <p class="a2-20">jQuery API: </p><b>ALZIO</b> 이렇게 붙음
+	
+});	
+
+
+
+</script>
+<style>
+
+.a2-1 {display: none;}
+.a2-12 { background: black; width: 100px; height: 100px;}
+.a2-12red { background: red;}
+
+</style>
+</head>
+<body>
+
+<button class="b1">실패ajax버튼</button>
+<p class="a2-1"><img src="img/Xmas1.jpg"></p>
+<p class="a2-2"></p>
+<hr>
+
+<div class="a2-3">링크</div>
+<div class="a2-4"></div>
+<div class="a2-5"></div>
+<div class="a2-6"><p><u>ajax <b>완료</b>시 사라짐</u></p>.</div>
+<div class="a2-7"></div>
+<hr>
+
+<ul>
+	<li>menu1</li>
+	<li>menu2</li>
+	<li class="a2-8">menu3</li>
+	<li>menu4</li>
+	<li>menu5</li>
+</ul>
+<hr>
+
+<button class="b2">1버튼</button> / <button class="b3">2버튼</button>
+<div class="a2-9" style="background-color:#000;color:#fff;width:100px;height:100px;">알지오강의</div>
+<hr>
+
+<button class="b4">>>></button> / <button class="b5"><<<</button>
+<div class="a2-10" style="position:absolute; background-color:#000;color:#fff;width:100px;height:100px;">알지오강의</div>
+<br><br><br><br><br>
+<hr>
+
+<button class="b6">animate이중처리</button> 
+<div class="a2-11" style="position:absolute; background-color:#000;color:#fff;width:100px;height:100px;">알지오강의</div>
+<br><br><br><br><br>
+<hr>
+
+<button class="b7">re</button> 
+<div class="a2-12">알지오강의</div>
+<hr>
+
+<div class="a2-13"  >IT전문교육---></div>
+
+<hr>
+<div class="a2-14"  >IT전문교육---></div>
+<b class="a2-15">ALZIO입니다.</b>
+<hr>
+
+<h3>h3 jQuery API</h3>
+<span>span알지오 정석</span>
+
+<hr>
+<div class="a2-15">
+	<div class="a2-16"> a2-16</div>
+	<div class="a2-16"> a2-16</div>
+	<div class="a2-16"> a2-16</div>
+	<div class="a2-16"> a2-16</div>
+</div>
+<hr>
+
+<h4 class="a2-17">jQuery API </h4>
+	<p>정답은:<span class="a2-18"></span></p>
+
+
+<hr>
+<button class="b8">70%버튼</button><br>
+<img class="a2-19" src="img/Xmas1.jpg"></p>
+
+<hr>
+<p class="a2-20">jQuery API: </p>
+
+</body>
+</html>

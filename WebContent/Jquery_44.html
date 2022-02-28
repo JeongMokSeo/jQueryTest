@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<!-- <script src="jQuery_3.6.0.min.js" ></script> -->
+<script >
+$(document).ready(function(){
+	//Attribute Contains Prefix Selector [name |= "value"]
+	$("a[hreflnag |= 'en']").css("border-top","5px solid #FF00FF");
+	
+	//Attribute Contains Prefix Selector [name *= "value"]	
+	$("input[name *= 'al3']").css("border-top","5px solid #FF00FF");
+	
+	//Attribute Contains Prefix Selector [name ~= "value"]		
+	$("input[name ~= 'al4']").css("border-top","5px solid #FF00FF");
+	
+	//Attribute Ends With Selector [name $= "value"] 끝나는 문자, 대소문자 구분함.
+	$("input[name $= 'al5']").val("JQuery ALZIO 알지오 정석");
+
+	//Attribute Equals Selector [name="value"]   값과 정확히 일치
+	$("input[value $= 'al6']").next().text("JQuery ALZIO 알지오 정석");
+
+	//Attribute Not Equals Selector [name!="value"]   값과 정확히 일치하지 않는
+	//$("input[name != 'al3']").val("JQuery ALZIO 알지오 정석 aaaaaaa");
+	
+	//Attribute Starts With Selector [name ^="value"]   시작하는값
+	$("input[name ^= 'al7']").val("JQuery ALZIO 알지오 정석 ");
+	
+	//.before()  지금내용의 이전
+	$(".al9").before("<p>alzio.co.kr</p>");
+	$(".al8").before($("h1"));  //위치변경
+	
+});	
+
+
+
+</script>
+<style>
+
+</style>
+</head>
+<body>
+<a href="#" hreflnag="en">en</a>
+<a href="#" hreflnag="all">all</a>
+<hr>
+<input name="al3">
+<input name="test1al3">
+<input name="al3test2">
+<input name="teal3st3">
+<input name="test4">
+
+<hr>
+<input name="al4">
+<input name="test1 al4">
+<input name="al4 test2">
+<input name="te al4 st3">
+<input name="test4ddd">
+
+<hr>
+<input name="al5">
+<input name="test1al5">
+<input name="al5test2">
+<input name="teal5st3">
+<input name="test5ddd">
+
+<hr>
+<input type="radio" value="al6"><p></p>
+<input name="al6">
+<input name="test1al6">
+<input name="al6test2">
+<input name="teal6st3">
+<input name="test6ddd">
+
+<hr>
+<input name="al7">
+<input name="test1al7">
+<input name="al7test2">
+<input name="teal7st3">
+<input name="test7ddd">
+
+<hr>
+<div class="al8">
+	<p class="al9">ALZIO</p>
+	<h1>jQuery API 알지오 정석</h1>
+	<p class="al9">ALZIO</p>
+</div>
+
+
+</body>
+</html>
