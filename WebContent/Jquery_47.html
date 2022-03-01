@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<!-- <script src="jquery-1.7.2.min.js" ></script> -->
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+	
+	//delegate()
+	$("body").delegate("p.a1","click",function() {
+		//$(this).after("<p>IT전문교육</p>");
+		$(this).after("<span>IT전문교육</span>");
+	});
+	
+	//queue  함수의 큐와 일치하는 요소를 실행하는 메서드
+	//dequeue()  
+	$("button.a2").click(function(){
+		$("div.a3").animate({left:"+=300px"},300);
+		$("div.a3").queue(function() {
+			$(this).css("background-color","#000");
+			$(this).dequeue();
+		});
+		$("div.a3").animate({left:"0"},1000);
+	});
+	
+	//$("div p").css("background-color","yellow");
+	$("div span").css("background-color","yellow");
+	
+	//detach()  제거 분리
+	$("button.a4").click(function() {
+		$("p.a5").detach();
+	});
+	
+	//:disabled Selector
+	$(":disabled").css("background-color","pink");
+	
+	//.each()  특정한 집단을 반복문 형태로 사용
+	//$.each([11,22],function(index,value){
+	//	alert(index + "-->" + value);
+	//});
+	
+	//Element Selector("element")
+	$("div.a7").css("border","4px solid blue");
+	$(".a8").css("border","4px solid red");
+	
+	//empty()  노드자체를 제거, 콘텐츠도 제거
+	$("button.a9").click(function() {
+		$(".a10").empty();		
+	})
+	
+	//:empty Selector
+	$("button.a11").click(function() {
+		$("li:empty").text("IT전문교육").css("background-color","pink");	   //비어있는 항목을 찾아 실행
+	})
+	
+	$("button.a12").click(function() {
+		$("input:enabled").val("활성화");		
+	});
+	
+	//end()  이전 요소로 돌아감
+	$(".a13").find(".a14-1").css("background-color","pink")
+	.end().find(".a14-2").css("background-color","blue");
+	
+	//eq()  선택요소의 인덱스번호  0부터 시작
+	//$("ul.a13 li").eq(3).css("background-color","orange");
+	$("ul.a13 li:eq(4)").css("background-color","orange");
+	
+	//.error 오류
+/* 	$("img").error(function() {
+		$("img").replaceWith("<p>오류</p>");
+	});
+	$("button.a15").click(function(){
+		$("img").error();
+	}); */
+	
+});	
+
+
+
+</script>
+<style>
+
+
+</style>
+</head>
+<body>
+<p class="a1">ALZIO</p>
+<hr>
+<button  class="a2">start</button>
+<div  class="a3" style="position:absolute; top:100px; height:30px; width:30px; background-color:#FFCC00;"></div>
+<br><br><br>
+<hr>
+<div>
+	<p>알지오</p>
+	<span>IT전문교육</span>
+	<p>2003 <span>설립</span></p>
+</div>
+<hr>
+<button class="a4">detach() 버튼</button>
+<p class="a5">알지오 p</p>
+<p class="a5">IT전문교육 p</p>
+<span>IT전문교육 span</span>
+<hr>
+<input class="a6" type="text"><br>	
+<select disabled="disabled">
+	<option>1</option>
+	<option>2</option>
+</select>
+<hr>
+<div class="a7" style="height:30px;width:30px; background-color:#FFCC00;"></div>
+<br>
+<span class="a8" style="height:30px;width:30px; background-color:#FFCC00;">SPAN</span>
+<hr>
+<button class="a9">empty() 버튼</button>
+<div class="a10">ALZIO</div>
+<div>IT전문교육</div>
+<hr>
+<button class="a11">empty() 버튼</button>
+<ul>
+	<li>alzio</li>	
+	<li></li>	
+	<li>alzio</li>
+</ul>
+<hr>
+<button class="a12">:enabled 버튼</button>	
+<input name="email" disabled>
+<input name="id">
+<hr>
+<ul class="a13">
+	<li class="a14-1">alzio1</li>	
+	<li class="a14-2">alzio2</li>	
+	<li>alzio3</li>
+	<li>alzio4</li>
+	<li>alzio5</li>
+	<li>alzio6</li>
+</ul>
+<hr>
+<img src="img/alzio_story.jpg"><br>
+<button class="a15">버튼</button>
+		
+</body>
+</html>

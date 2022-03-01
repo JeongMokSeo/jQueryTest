@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<!-- <script src="jquery-1.7.2.min.js" ></script> -->
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+
+	//bind
+	//$("p").bind("click",function(){   // p에 click이벤트를 연결
+	//	alert("jQuery API 알지오 정석");
+	//});
+	
+	$("p").bind("mouseenter mouseleave",function(){   
+		$(this).toggleClass("al3-1");
+	});
+	
+	//blur() 요소가 포커스를 잃었을때
+	$("input.al1").blur(function() {
+		//alert("jQuery API 알지오 정석");
+		$(this).css("background-color","#FF00FF");
+	});
+	
+	$("input.al1").focus(function() {
+		$(this).css("background-color","#000");
+	});
+	
+	$("input.al1").hover(function() {
+		$(this).css("background-color","blue");
+	});
+	
+	//button Selector
+	//$(":button").css("border-top","5px solid pink");  //타입만 맞는다면 적용됨
+	$("button").css("border-top","5px solid pink");    // input type=button은 적용되지 않음
+	
+	$("#al3-1").click(function() {
+		$("p.al3").hide("slow",function(){   //slow hide가 완료된후 callback 함수가 호출됨.
+			alert("완료");
+		});
+	});
+	
+	//.Callbacks() 현재 효과가 완료된후 콜백함수를 실행하는 메서드
+	//add() 기존의 요소그룹에 새로운 셀렉터나 요소를 추가하는 메서드
+	//fire()  지정된 인수를 사용하여 콜백몰록으로 이동
+	//remove() 일치하는 요소를 DOM(문서 객체 모델)에서 제거하는 메서드
+	//has 지정된 셀렉터의 자식요소에서 일치하는 선택자가 있는지 확인하는 메서드
+	//fireWith 지정된 컨택스트및 인수 콜백리스트를 호출하는 메서드
+	//disabled 콜백리스트를 비활성화 
+	
+	function al38(lon){
+		document.write("ALZIO",lon,"<br>");
+	}
+	var al33 =$.Callbacks();
+	al33.add(al38);
+/* 	al33.fire("&nbsp;&nbsp;-&nbsp;&nbsp;IT전문교육")
+	al33.fire("&nbsp;&nbsp;-&nbsp;&nbsp;IT전문교육") */
+	
+	//.change() 이벤트발생시켜 함수를 실행... 핸들러
+	$("input.al4").change(function() {
+		alert("change");
+	});
+	
+	$(".al5 select").change(function() {
+		al41(this);
+	})
+	function al41(al42) {
+		var al43 = $(":selected",al42).val();
+		$(".al5 input").val(al43);
+	}
+	
+	// :checkbox()
+	//$("[type=checkbox]").wrap("<b style='background-color:blue'>");
+	//$("input:checkbox").wrap("<b style='background-color:blue'>");
+	//$(":checkbox").wrap("<b style='background-color:blue;border:solid 1px red'>");
+	
+	//$(":checkbox").wrap("<b>").parent().css({border:"solid 1px red", background:"green"});
+	
+	function countChecked(){
+		var al = $("input:checked").length;
+		$("p.al6").text(al);
+	}
+	countChecked();
+	$(":checkbox").click(countChecked);
+	
+});	
+
+
+
+</script>
+<style>
+.al3-1 {font-weight: bold; color: blue;}
+</style>
+</head>
+<body>
+<p>click</p>
+<hr>
+<input name="alzio1" class="al1">
+<hr>
+<button class="al2">버튼1</button>
+<input type="button" value="버튼2">
+<hr>
+<button id="al3-1">버튼</button>
+<p class="al3">jQuery API 알지오 정석</p>
+<hr>
+<input name="alzio2" class="al4">
+<hr>
+<div class="al5">
+	<select>
+		<option>start</option>
+		<option value="a">a</option>
+		<option value="l">l</option>
+		<option value="z">z</option>
+		<option value="i">i</option>
+		<option value="o">o</option>
+	</select>
+	<input >
+</div>
+<hr>
+<input type="checkbox"> / <input type="checkbox">  / <input type="checkbox">  / <input type="checkbox" checked="checked">  / <input type="checkbox"> 
+<p class="al6"></p>
+
+
+</body>
+</html>

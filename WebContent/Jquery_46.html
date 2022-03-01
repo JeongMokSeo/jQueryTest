@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery API alzio </title>
+<!-- <script src="jquery-1.7.2.min.js" ></script> -->
+<script src="jQuery_3.6.0.min.js" ></script>
+<script >
+$(document).ready(function(){
+
+	//.children()
+	$("ul.al4-2 > li").css("border", "1px solid blue");
+	//$("ul").children().css("border", "1px solid blue");
+
+	//clearQueue()
+	$("#start").click(function(){
+		$("div.al4-5").animate({height:500},500);
+		$("div.al4-5").animate({width:200},700);
+		$("div.al4-5").animate({height:100});
+		$("div.al4-5").animate({width:100});
+		$("div.al4-5").animate({height:50});
+		$("div.al4-5").animate({width:50});
+	});
+	$("#stop").click(function(){
+		$("div.al4-5").clearQueue();
+	});
+	
+	//click
+	$("div.al4-6").click(function() {
+		$(this).slideUp();
+	});
+	
+	//clone(); 선택한 요소 집합의 전체 복사본을 만드는 메서드
+	// prependTo()  선택한 요소의 시작 부분에 일치하는 요소를 삽입하는 메서드
+	//$("span.al4-7").clone().prependTo($("p.al4-8"));
+	$("button#start2").click(function() {		
+		$("span.al4-7").clone().prependTo($("p.al4-8"));
+	});
+	
+	//closest 
+	//$("li.al4-3").closest("ul").css("background-color","orange");
+	//parents
+	$("li.al4-3").parents("ul").css("background-color","orange");
+	
+	//:contains()
+	$("div:contains('IT전문')").css("background-color","orange");
+	
+	//nodeType  노드의 유형을 지정하는 정수값을 반환
+	$("div").contents().filter(function(){
+		return this.nodeType !=1;    //택스트 값을 반환
+	}).wrap("<b>");
+	
+	//data()
+	$("div.al4-9").data("divData",{first:"alzio", last:"IT전문교육"});
+	$("span.al4-10").text($("div.al4-9").data("divData").first);
+	$("span.al4-11").text($("div.al4-9").data("divData").last);
+	
+	$("#start3").click(function(){
+		$("span.al4-12").data("al4-12","IT전문교육");
+	});
+	$("#stop3").click(function(){
+		alert($("span.al4-12").data("al4-12"));
+	});	
+	
+	//dblclick()
+	$("div.al4-6").dblclick(function() {
+		$(this).hide();
+	});	
+	
+	//deferred.always()
+	//무조건 실행해야할 콜백을 실행할때 사용
+	$.get("lod.html").always(function(){
+	//	alert("거부");
+	});
+	
+	//deffered.done() 해결될때만 나오는 
+	$.get("lod.html").done(function(){
+		alert("OK");
+	}).fail(function() {
+		alert("NG");		
+	});	
+	
+	//delay()  지연
+	$("button.al4-13").click(function() {		
+		$("div.al4-14").fadeIn(100);
+		$("div.al4-15").delay(2000).fadeIn(200);
+	});	
+});	
+
+
+
+</script>
+<style>
+
+.al4-2 * { display: block; border: 1px solid #ccc; padding: 10px; margin: 10px;}
+.al4-14 { display: none; background-color: #FF00FF; width:100px; height: 100px; } 
+.al4-15 { display: none; background-color: #CC0000; width:100px; height: 100px; } 
+</style>
+</head>
+<body>
+<ul class="al4-1">
+	<li class="al4-0">alzio1</li>
+	<li>alzio2</li>
+	<ul>
+		<li>alzio2-1</li>
+		<li>alzio2-2</li>
+		<li  class="al4-3">alzio2-3</li>
+		<li  class="al4-4">alzio2-4</li>
+	</ul>	
+	<li>alzio3</li>
+</ul>
+<hr>
+<div >div
+	<ul class="al4-2">ul
+		<li>li
+			<span>span</span>
+		</li>
+	</ul>
+</div>
+<hr>
+<button id="start">start</button> / <button id="stop">stop</button>
+<div  class="al4-5" style="background-color:#FFFF99"></div>
+
+<hr>
+click -->slideUp  dblclick --> hide
+<div  class="al4-6" style="background-color:#FFFF99; height:100px;width:200px"></div>
+
+<hr>
+<button id="start2">start2</button> 
+<span class="al4-7" >clone</span>
+<p class="al4-8">ALZIO</p>
+<hr>
+<div>alzio</div>
+<div>IT<a href="#">전문교육</a></div>
+<div>alzio.co.kr</div>
+
+<hr>
+<div class="al4-9">
+	<span  class="al4-10"></span> / <span  class="al4-11"></span>
+</div>
+<hr>
+<button id="start3">start3</button> / <button id="stop3">stop3</button>
+<span  class="al4-12" ></span>
+
+<hr>
+<button class="al4-13">버튼</button><br>
+<div class="al4-14"></div>
+<div class="al4-15"></div>
+
+</body>
+</html>
