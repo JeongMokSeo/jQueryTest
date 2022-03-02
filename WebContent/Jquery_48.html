@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio - jQuery api </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+$(document).ready(function(){
+//$(function(){
+	/*
+	//$("p, span, h2").click(function(event) {
+	//	alert(event.currentTarget === this);
+	//});
+	//$("li:even").css("background-color", "blue");
+	//$("li:odd").css("background-color", "pink");
+	
+	var logDiv = $("#al5-1");
+	 for (var i = 0; i < 6; i++) {
+	  $("li").eq(i).on("click", {value:i}, function(event) {  // .eq() 선택된요소에 해당하는 인덱스번호를 가진 요소를 찾는 메서드
+	    var msgs = [                                          // .on() 선택된 요소와 하위요소에 하나 이상의 이벤트핸들러를 연결하는 메서드 
+	      "li = " + $(this).index(),
+	      "event.data.value = " + event.data.value,
+	      "i = " + i
+	    ];
+	    logDiv.append(msgs.join(", ") + "<br>");
+	  });
+	}
+	// delegate  특정이벤트가 종료됨을 알려줌
+	$("p").on("click", "button", function(event){
+	    $(event.delegateTarget).css("background-color", "blue");
+	});	
+	
+	$("a").click(function(event){
+	    event.preventDefault();
+	    alert("jQuery API 알지오 정석 " + event.isDefaultPrevented());
+	});
+
+	$("p").click(function(event){
+		event.stopImmediatePropagation();
+		alert("jQuery API 알지오 정석 " +  event.isImmediatePropagationStopped());
+	});
+	
+
+	// event.namespace
+	$("span").on("ab.alzio",function(event){   //ab 라는 값에 밸류 alzio를 정의
+		alert(event.namespace);
+	});
+	$("span").click(function(event){
+		$(this).trigger("ab.alzio");  //trigger()  특정 이벤트 유형에 일치하는 요소에 연결된 모든 핸들러와 동작을 실행하는 메서드
+	});  
+	$("button").click(function(){
+		$("span").off("ab.alzio");  //off 이벤트처리기를 제거
+	});
+	
+	//event.pageX event.pageY
+	$(document).on("mousemove", function(event) {
+	  $("#al5-3").text("X : " + event.pageX + " / Y : " + event.pageY);
+	});	
+	
+	//event.preventDefault()
+	$("a").click(function(event){
+		event.preventDefault();
+	});	
+	
+	$("a").mouseover(function(event) {
+	  //alert(event);
+	  //alert(event.relatedTarget);
+	  alert(event.relatedTarget.nodeName);  //
+	});
+
+	//event.result
+	$("button").click(function(){
+		return "alzio.co.kr";
+	});
+	$("button").click(function(event){
+		$("div").text(event.result);
+	});	
+	
+	$("span").click(function(event) {
+	  event.stopImmediatePropagation();
+	});
+	$("span").click(function(event) {
+	  $(this).css("background-color", "blue");
+	});
+	$("p").click(function(event) {
+	  $(this).css("background-color", "blue");
+	});		
+	
+	//event.stopImmediatePropagation();  버블링을 중지하고, 실행되는 이벤트핸들러의 나머지 부분에 대한 처리도 중지하는 메서드
+	// span 클릭시 alert 2, 3, 4, 는 출력되지 않음.
+	$("span").click(function(event){
+  		alert("1");
+	     event.stopImmediatePropagation();
+	});
+	$("span").click(function(event){
+	  alert("2");
+	});
+	$("span").click(function(event){
+	  alert("3");
+	});
+
+	$("p").click(function(event) {
+	  event.stopPropagation();
+	});	
+
+	//event.stopPropagation() 메서드 가 실행되는 상위 실행 중지.. 부모 중지
+	$("p").click(function(event) {
+	  event.stopPropagation();
+	});
+	
+	*/	
+
+	
+ 	$("span").click(function(event){
+		event.stopPropagation();
+		alert("1");
+	});
+	$("p").click(function(event){
+		alert("2");
+	});
+	$("div").click(function(){
+		alert("3");
+	});
+
+	
+});	
+</script>
+<style>
+
+</style>
+</head>
+<body>
+<!--
+<p>ALZIO</p>
+<span>ALZIO</span>
+<h2>ALZIO</h2>
+<ul>
+   <li>ALZIO 1</li>
+   <li>ALZIO 2</li>
+   <li>ALZIO 3</li>
+   <li>ALZIO 4</li>
+   <li>ALZIO 5</li>
+   <li>ALZIO 6</li>
+</ul>
+<div id="al5-1"></div>
+
+
+<p><button>Click me!</button>
+jQuery API 알지오 정석</p>
+<p>jQuery API 알지오 정석</p>	
+<a href="http://www.alzio.co.kr/">jQuery API 알지오 정석</a>
+
+<p>jQuery API 알지오 정석</p>
+
+<button>button</button>
+<span>jQuery API 알지오 정석</span>
+
+<div id="al5-3"></div>
+
+<a href="http://www.alzio.co.kr">링크</a>
+
+<button>button</button>
+<div>jQuery API 알지오 정석</div>
+
+<span>span</span>
+<p>p</p>
+-->
+
+<div>
+	<p> p /
+	    <span> span</span>
+	</p>
+</div>
+
+
+
+</body>
+</html>
