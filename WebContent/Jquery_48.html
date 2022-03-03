@@ -109,9 +109,6 @@ $(document).ready(function(){
 	  event.stopPropagation();
 	});
 	
-	*/	
-
-	
  	$("span").click(function(event){
 		event.stopPropagation();
 		alert("1");
@@ -121,8 +118,130 @@ $(document).ready(function(){
 	});
 	$("div").click(function(){
 		alert("3");
+	});	
+	
+	//event.target
+	$("body").click(function(event) {
+	  //$("#al5-4").text("클릭됨 - "+event);
+	  //$("#al5-4").text("클릭됨 - "+event.target);
+	  $("#al5-4").text("클릭됨 - "+event.target.nodeName);
+	});
+	
+	
+	$("p, h2").click(function(event){
+	  //$("#al5-4").text("클릭됨 - "+event);
+	  //$("#al5-4").text("클릭됨 - "+event.target);
+	  $("#al5-4").text("클릭됨 - "+event.target.nodeName);
+	});	
+
+	$("div").click(function(event){
+		$("p").text(event.timeStamp);
+	});
+	
+	//event.Type
+	$("a").click(function(event) {
+	  alert(event.type);
+	});	
+	
+	$("p").on("mouseover mouseout click dblclick",function(event){
+		$("div").text("현재 - " + event.type);
+	});	
+
+	//event.which
+	$("#al5-5").on("keydown", function(event) {
+	  $("#al5-6").text(event.type + " : " +  event.which);
 	});
 
+	$("#al5-5").on("mousedown", function(event) {
+  		$("#al5-6").html(event.type + " : " +  event.which);
+	});
+	
+	//fadeIn() fadeOut()
+	$("#al5-8").click(function(){
+	        $("div").fadeOut()
+	    });
+	$("#al5-7").click(function(){
+	        $("div").fadeIn();
+	});	
+
+	$("p").click(function(){
+	  $("p").fadeTo(2000, .2);
+	});	
+	
+	$("#al5-7").fadeToggle();
+	$("#al5-8").fadeToggle("slow");
+	$("#al5-9").fadeToggle(5000);
+	
+	$(":file").css("border", "3px solid blue");
+	
+	//filter
+	$("p")
+	.css("background", "#FF00FF")
+	.filter(".al5-7")
+	.css("border", "5px solid blue");	
+
+	$("p").find("span").css("color", "blue");	
+	
+	//finish()
+	$("#start").click(function(){
+	  $("div").animate({height: 100}, 500);
+	  $("div").animate({width: 200}, 700);
+	});
+	$("#stop").click(function(){
+	  	$("div").finish();
+	});
+	
+	$("li").first().css("background-color", "red");
+	
+	$("p:first-child").css({"color": "blue", "border": "3px solid #FF00FF"});
+	$("p:first-of-type").css({"color": "blue", "border": "3px solid #FF00FF"}); //위와 동일 p:first-child
+	
+	$("p:first").css({"color": "blue", "border": "3px solid #FF00FF"});
+	
+	$("input").focus(function() {
+	  alert("jQuery API 알지오 정석");
+	});
+
+	$("#al5-9").click(function() {
+	  $("#al5-8").focus();
+	});
+	
+	$("#al5-8").focus();
+	//$("input").focus();
+	 $(":focus").css({"color": "blue", "border": "3px solid #FF00FF"});
+	
+	$("p").focusin(function() {
+	  $(this).find("span").css("display", "inline").fadeOut(2000);
+	});
+	$("p").focusout(function(){
+	  $(this).css("background-color", "#FFF");
+	});
+	
+	$("button").click(function(){
+		$.get("lod.html", function(data){
+		alert( "jQuery_api04" + data);
+		});
+	});
+
+	$("li:gt(1)").css("background-color", "#FF66FF");
+	
+	$("div:has(span)").css("background-color", "yellow");
+	$("p:has(span)").css("background-color", "#FF66FF");
+	$("div:has(span)").css({"color": "blue", "border": "3px solid #FF00FF"});
+	
+	$("li:has(ul)").css("background-color", "#FF66FF");
+	
+	$("div:has(span)").css({"color": "blue", "border": "3px solid #FF00FF"});
+	
+	$("button").click(function(){
+		alert($("p").hasClass("al5-11"));
+	});	
+
+	*/	
+	
+	$(":header").css({"color": "blue", "border": "3px solid #FF00FF"});
+
+	
 	
 });	
 </script>
@@ -165,7 +284,6 @@ jQuery API 알지오 정석</p>
 
 <span>span</span>
 <p>p</p>
--->
 
 <div>
 	<p> p /
@@ -173,7 +291,121 @@ jQuery API 알지오 정석</p>
 	</p>
 </div>
 
+<h2>클릭됨</h2>
+<p>클릭됨</p>
+<span>클릭됨</span>
+<div id="al5-4"></div>
 
+<div>Click.</div>
+<p style="color:#FF00FF"></p>
+
+<a href="http://www.alzio.co.kr">링크</a>
+
+<p style="color:#FF00FF">event.type</p>
+<div></div>
+
+<input id="al5-5">
+<div id="al5-6"></div>
+
+<button id="al5-7">in</button> / <button id="al5-8">out</button>
+<br/>
+
+<div>jQuery API 알지오 정석</div>
+<p>jQuery API 알지오 정석</p>
+
+<div id="al5-7" style="width:100px;height:20px;background-color:#FFFF00;"></div>
+<div id="al5-8" style="width:100px;height:20px;background-color:#FFCC00"></div>
+<div id="al5-9" style="width:100px;height:20px;background-color:#FF9900"></div>
+
+<input> / <input type="text"> / <input type="file">
+
+   <p>ALZIO 1</p>
+   <p class="al5-7">ALZIO 2</p>
+   <p class="al5-7">ALZIO 3</p>
+   <p class="al5-7">ALZIO 4</p>
+   <p>ALZIO 5</p>
+   <p>ALZIO 6</p>
+   
+	<p>jQuery API <span>알지오</span> 정석</p>
+	<button id="start">start</button>
+	<button id="stop">stop</button>
+	<div style="background-color:#FFFF99;"></div>
+
+<ul>
+   <li>ALZIO 1</li>
+   <li>ALZIO 2</li>
+   <li class="al5-7">ALZIO 3</li>
+   <li class="al5-7"><span>알지오</span></li>
+   <li>ALZIO 5</li>
+   <li>ALZIO 6</li>
+</ul>
+
+<p>jQuery API (독립1)</p>
+<div>
+  <p>알지오 정석 (div 1)</p>
+  <p>alzio.co.kr (div 2)</p>
+</div>
+<p>jQuery API (독립2)</p>
+<p>jQuery API (독립3)</p>
+
+<input type="text">
+
+<input id="al5-8" type="text">
+<span id="al5-9">포커스!!</span>
+
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input  id="al5-8" type="text">
+   
+<p style="background-color:#FFFFCC;height: 100"><input type="text"> <span style="display: none;">jQuery API알지오 정석</span></p>
+   
+<button>jQuery API</button>
+
+<ul>
+   <li>ALZIO 1</li>
+   <li>ALZIO 2</li>
+   <li class="al5-7">ALZIO 3</li>
+   <li class="al5-7"><span>알지오 정석</span></li>
+   <li>ALZIO 5</li>
+   <li>ALZIO 6</li>
+</ul>
+
+<p><span>jQuery API 알지오 정석 p</span> jQuery API 알지오 정석 p</p>
+<p>jQuery API 알지오 정석</p>
+<div><span>jQuery API알지오 정석 div</span></div>
+   
+<ul>
+   <li>ALZIO 1</li>
+   <li>ALZIO 2
+		<ul>
+		   <li>ALZIO 1</li>
+		   <li>ALZIO 5</li>
+		   <li>ALZIO 6</li>
+		</ul>
+   </li>
+   <li class="al5-7">ALZIO 3</li>
+   <li class="al5-7"><span>알지오 정석</span></li>
+   <li>ALZIO 5</li>
+   <li>ALZIO 6</li>
+</ul>
+
+<div><span>jQuery API 알지오 정석</span></div>
+<div>jQuery API 알지오 정석</div>
+
+
+<p class="al5-11">jQuery API 알지오 정석</p>
+<button>클릭</button>
+-->
+
+<h1>h 1</h1>
+<p>jQuery API</p>
+<h2>h 2</h2>
+<h3>h 3</h3>
+<p>jQuery API</p>
+<h4>h 4</h4>
+<p>jQuery API</p>
 
 </body>
 </html>
