@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery alzio - jQuery api </title>
+<script src="jquery-1.7.2.min.js" ></script>
+<script src="jquery/jquery.effects.core.js"></script>
+<script >
+$(document).ready(function(){
+//$(function(){
+	/*
+
+	$("button").click(function(){
+		alert($("div").height());
+	});
+
+	//.one()  선택된 요소에 하나 이상의 이벤트 핸들러를 연결하고 one 이벤트가 발생하였을 때 실행하는 함수를 지정하는 메서드 
+	$("div").one("click", function() {
+	  $(this).height(20)
+	});	
+
+	// .show() 숨겨준 요소를 보여주는 메서드
+ 	$(":hidden").show(2000);	
+
+	$(":image").css("background-color", "#FF66FF");
+
+	var alzioli = document.getElementById("al6-3");
+	alert($("li").index(alzioli));
+
+	// :input 모든 입력요소를 선택
+	$(":input").css("background-color", "#CC0000");
+	
+	//.insertAfter 선택된 요소 후에 일치하는 요소를 삽입하는 메서드
+	$("p").insertAfter("#al6-3");		
+	$("<p>알지오</p><p>알지오</p><p>알지오</p>").insertAfter(".al6-4");
+	//.insertBefore 선택된 요소 앞에 일치하는 요소를 삽입하는 메서드
+	$("<p>알지오</p>").insertBefore(".al6-4");
+
+	// .is 확인 선택된 요소중 적어도 하나가 일치할 경우 true를, 아니면 false를 반환하는 메서드
+	$("p").click(function(){
+	    if ($("p").parent().is("div")) {
+	        alert("ok"); 
+	    }
+	});
+	
+	//.keypress() 브라우져가 키보드 입력을 받았을때 요소에 이벤트를 전송하는 메서드
+	i = 0;
+    //$("input").keypress(function(){
+    //    $("p").text(i += 1);
+    //});
+	
+    // .keyup() 키보드에 키를 눌렀다 놓을때 발생하는 이벤트 
+	//$("input").keyup(function(){
+	//		$("input").css("background-color", "#FF00FF");
+	//});
+	//ALT, CTRL, SHIFT, ESC   --> keypress에는 적용되지 않음.  keydown 이벤트에 반응 
+	$("input").keydown(function(){
+		$("input").css("background-color", "#FFFF00");
+	});	
+
+	// :lang  지정된 언어의 값과 속성 lang을 가진 요소를 선택합니다.
+	$(":lang(euc-kr)").css("background-color", "#FF00FF");
+
+	$("p:last-child").css("background-color", "#FF00FF");
+	$("p:last-of-type").css("background-color", "#FF00FF");
+	
+	// :lt()  지정된 수보다 작은 수의 인덱스 요소를 모두  선택합니다.
+	$("li:lt(3)").css("background-color", "#FF66FF");
+
+	//.map()  배열객체를 만듦. 배열의 모든 요소에 제공되는 함수를 호출하여 새로운 배열을 생성하는 메서드
+	//.val() 선택된 요소 집합에서 첫번쩨 요소의 현재값을 취득하거나, 선택한 요소의 값 속성을 설정하는 메서드
+	//.get() jQuery 객체에 일치하는 요소를 인출하는 메서드
+	//.join 문자열로 배열의 모든 요소를 결합하는 메서드
+	//Query.map() / $.map() / .map()
+	//.get() 선택요소를 배열로 가져옴
+	$("div").append(
+		$("input").map(function() {
+			return $(this).val();
+		}).get().join(", ")
+	);
+	
+	$(document).mousemove(function(event){
+		$("body").text(event.pageX + " | " + event.pageY);
+	});
+
+	// :not() 조건에 일치하지 않는 모든 요소를 선택합니다.
+    $("p:not(.al6-11)").css("background-color", "#FF66FF");
+
+	//:nth-child(?)   인덱스와는 다르게 1부터 카운트함
+	//:nth-last-of-type() Selector //:nth-of-type() Selector
+	//$("li:nth-child(4)").css("background-color", "#FF66FF");
+	$("li:nth-last-child(2)").css("background-color", "#FF00FF");  //끝에서 두번째
+
+	// .offset  선택된 상단 왼쪽위가 기점
+	$("button").click(function(){
+		var o = $("div").offset();
+		alert("top : " + o.top + " left : " + o.left);
+	});
+	
+	//.offsetParent() 최상위 부모요소 선택.  첫번째 위치에 있는 부모 요소를 반환하는 메서드
+	$("p").offsetParent().css("background-color", "#000");
+	
+	//.one 선택된 요소에 하나 이상의 이벤트 핸들러를 연결하고, one 이벤트가 발생했을때  실행하는 함수를 지정하는 메서드
+	$("div").one("click", function(){
+        $(this).css("background-color", "#FF00FF");
+	});
+
+	//:only-child  자식하나.  부모의 유일한 자식인 요소를 찾아서 선택
+	//$("p:only-child").css("background-color", "#FF00FF");
+	$("p:only-of-type").css("background-color", "#FF00FF");  //p태크 하나만 있는
+	
+	//:password  password타입만 선택
+	$(":password").css("background-color", "#FF00FF");
+
+	//.position() 일치하는 부모 요소를 기준으로 위치를 반환하는 메서드 
+	$("button").click(function(){
+		var o = $("div").position();
+		alert("top : " + o.top + " left : " + o.left);
+	});
+
+	//.prev() 지정된 요소를 기준으로 각각의 이전 형제 요소를 가져옵니다.
+	$(".al6-12").prev().css("background-color", "#FF00FF");
+	$(".al6-13").prevAll().css("background-color", "#FF00FF");
+	$(".al6-15").prevUntil(".al6-14").css("background-color", "#FF00FF");
+
+	//prop  일치하는 요소의 세트 또는 요소에 대한 속성값을 반환하는 메서드
+	//.append()  선택된 요소의 긑에 지정된 콘텐츠를 삽입하는 메서드
+	$("button").click(function(){
+        var $u = $("p");
+        $u.prop("a", "ALZIO, ");
+        $u.append("<br>", "jQuery API : " + $u.prop("a"));
+    });
+
+    $(":radio").wrap("<span style='background-color:#FF00FF'>");
+	
+	$(":radio").wrap( "<span>span</span>" )
+		.parent()
+		.css({
+		background: "red",
+		border: "5px blue solid"
+    });	
+
+	//removeAttr  선택한 요소에서 속성을 제거하는 메서드
+	$("button").click(function(){
+        $("p").removeAttr("style");
+    });
+
+	$("#up").click(function(){
+		$("span").data("al6-15", "jQuery API 알지오 정석");
+		alert("db 접속 : " + $("span").data("al6-15"));
+	});
+	$("#delete").click(function(){
+		$("span").removeData("al6-15");
+		alert("DELETE : " + $("span").data("al6-15"));
+	});
+
+	//removeProp() 
+	var $al = $("div");
+	$al.prop("cod1", "알지오 정석");
+	$al.append("append : ", String($al.prop("cod1")));
+	$al.removeProp("cod1");
+	$al.append("removeProp : ", String($al.prop("cod1")));
+
+	$("<h1>jQuery API 알지오 정석</h1>").replaceAll(".al6-15");
+	
+	$(":reset").css("background-color", "#FF00FF");	
+
+	alx = 0;
+	$(window).resize(function(){
+        $("span").text(alx += 1);
+    });
+	
+	$( window ).resize(function() {
+	  $( "body" ).prepend( "<div>" + $( window ).width() + "</div>" );
+	});
+	
+	$("<b></b>").text( $(":root")[0].nodeName).appendTo("div");	
+	$(":root").css("background-color", "#FF00FF");
+
+
+	
+	al = 0;
+	$("div").scroll(function(){
+	    $("p").text( al+= 1);
+	});	
+
+	$("button").click(function(){
+		alert($("div").scrollLeft());
+	}); //.scrollTop()
+
+	$(":input").select(function() {
+	  $("p").text("jQuery API 알지오 정석").fadeOut(5000);
+	});
+
+	//.serialize() 직렬화
+	$("button").click(function(){
+        $("div").text($("form").serialize());
+	});
+
+	$("button").click(function(){
+		var r = $("form").serializeArray();
+		$.each(r, function(i, field){
+			$("div").append(field.name + " | " + field.value + "/");
+		});
+	});
+
+	// .size()
+	$("button").click(function(){
+		alert($("li").size());
+	});
+	// .silce 선택된 수치 이후 모든 내용 선택
+	$("li").slice(3).css("background-color", "#FF00FF");
+
+	//.submit() 
+	$("form").submit(function(){
+		alert("전송완료");
+	});
+	$(":submit").css("background-color", "#FF00FF");
+	
+	$(":text").css("background-color", "#FF00FF");	
+
+	// .toArray() 배열로 jQuery를 선택하여 일치하는 모든 요소를 검색합니다.
+	$("button").click(function(){
+        var h;
+        var j= $("li").toArray()
+        for (h = 0; h< j.length; h++) {
+            alert(j[h].innerHTML);
+        }
+    });
+
+	//.triggerHandler
+	$("input").select(function(){
+		$("input").after("<br>jQuery API 알지오 정석");
+	});
+	$("button").click(function(){
+		$("input").triggerHandler("select");
+	});
+
+	//.unbind()
+	function clickss() {
+		$("div").show().fadeOut(1500);
+	}	
+	$("#al6-18").click(function() {
+	  $("#al6-17")
+	    .bind("click", clickss)
+	    .text("jQuery API 알지오 정석");
+	});
+	$("#al6-19").click(function() {
+	  $("#al6-17")
+	    .unbind("click", clickss)
+	    .text("alzio.co.kr");
+	});
+
+	//.delegate 선택한 요소의 자식요소에 대한 이벤트 처리기를 첨부하는 메서드
+	//.undelegate 현재 선택에 일치하는 모든 요소에 대한 현재 또는 미래의 이벤트 핸들러를 제거합니다.
+	$("body").delegate("p", "click", function(){
+		$(this).slideToggle();
+	});
+    $("button").click(function(){
+		$("body").undelegate();  
+	});
+
+	// .unwrap 선택된 부모요소를 제거하는 메서드
+	$("button").click(function(){
+		$("p").unwrap();
+	});
+	
+	// wrapAll  선택된 모든 요소 주위에 지정한 HTML요소를 둘러싸는 메서드
+	//$("p:visible").css("background-color", "#FF00FF");
+	$("p").wrapAll("<div></div>").css({
+	    background: "red",
+	    border: "5px blue solid"
+	});
+	$( "p" ).wrapInner( "<b></b>" );
+	
+	*/	
+	
+	$("button").click(function(){
+		var o = $("div").position();
+		alert("top : " + o.top + " left : " + o.left);
+	});
+});	
+</script>
+<style>
+
+div { border: 1px solid #FF00FF;}
+
+</style>
+</head>
+<body>
+<br>
+<div>jQuery API 알지오 정석</div>
+<button>버튼</button>
+<br>--------------------------
+
+<!--
+
+<p>jQuery API 알지오 정석1</p>
+<p style="display:none">jQuery API 알지오 정석2</p>
+<p>jQuery API 알지오 정석3</p>
+<p>jQuery API 알지오 정석4</p>
+<br>-----------------------------------------
+
+<button>button</button>
+<section style="border:2px solid #FF00FF;">
+	<p style="background-color:#FF00FF;">section -> p테그</p>
+</section>
+<div style="border:2px solid #FF00FF;">
+	<p style="background-color:#FF00FF;">div -> p테그</p>
+</div>
+<br>-----------------------------------------
+<button>button</button>
+<p>jQuery API 알지오 정석</p>
+<p>jQuery API 알지오 정석</p>
+<br>-----------------------------------------
+<button id="al6-17">al6-17</button>
+<button id="al6-18">al6-18</button>
+<button id="al6-19">al6-19 [unbind]</button>
+<div style="display:none;">ALZIO</div>
+<br>-----------------------------------------
+
+<button>button</button><br>
+<input>
+<br>-----------------------------------------
+<button>button</button>
+<ul>
+  <li>IT전문교육</li>
+  <li>jQuery</li>
+  <li> API</li>
+  <li> 알지오 정석</li>
+</ul>
+<br>-----------------------------------------
+<input type="text">
+<br>-----------------------------------------
+
+<form action="">
+	<input type="submit" value="버튼">
+</form> 
+<br>-----------------------------------------
+<button>button</button>
+<ul>
+  <li>alzio 0</li>
+  <li>alzio 1</li>
+  <li>alzio 2</li>
+  <li>alzio 3</li>
+  <li>alzio 4</li>
+  <li>alzio 5</li>
+  <li>alzio 6</li>
+  <li>alzio 7</li>
+</ul>
+<ul>
+  <li>alzio 0</li>
+  <li>alzio 1</li>
+  <li>alzio 2</li>
+  <li>alzio 3</li>
+  <li>alzio 4</li>
+  <li>alzio 5</li>
+  <li>alzio 6</li>
+  <li>alzio 7</li>
+</ul> 
+<br>-----------------------------------------
+<form>
+	<input type="text" name="al6-16" value="alzio"><br>
+	<input type="text" name="al6-17" value="alzio"><br>
+	<input type="text" name="al6-18" value="alzio"><br>
+	<input type="text" name="al6-19" value="alzio"><br>
+	<input type="text" name="al6-20" value="alzio"><br>
+</form>
+<button>button</button>
+<div></div>
+<br>-----------------------------------------
+<form>
+	<input type="text" name="al6-16" value="alzio"><br>
+	<input type="text" name="al6-17" value="alzio"><br>
+	<input type="text" name="al6-18" value="alzio"><br>
+	<input type="text" name="al6-19" value="alzio"><br>
+	<input type="text" name="al6-20" value="alzio"><br>
+</form>
+<button>button</button>
+<div></div>
+<br>-----------------------------------------
+<input type="text" value="alzio">
+<p></p>
+<br>-----------------------------------------
+<div style="width:200px;height:50px;overflow:scroll;">jQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQueryjQuery</div><br>
+<button>button</button>
+<br>-----------------------------------------
+<div style="width:500px;height:100px;overflow:scroll;">jQuery API 알지오 정석<br>
+	jQuery API 알지오 정석<br>
+	jQuery API 알지오 정석<br>
+	jQuery API 알지오 정석<br>
+	jQuery API 알지오 정석<br>
+	jQuery API 알지오 정석<br>
+</div>
+<p></p>
+
+
+
+<br>-----------------------------------------
+<div></div>
+<br>-----------------------------------------
+<span></span>
+<br>-----------------------------------------
+<div></div>
+<div class="al6-15">1</div>
+<div class="al6-15">2</div>
+<div class="al6-15">3</div>
+<br>-----------------------------------------
+<input type="text"> / <input type="password"> / <button type="button">button</button> / <input type="reset">
+<br>-----------------------------------------
+
+<div></div>
+<br>-----------------------------------------
+
+<div></div>
+<div class="al6-15">1</div>
+<div class="al6-15">2</div>
+<div class="al6-15">3</div>
+<br>-----------------------------------------
+
+<div></div>
+<br>-----------------------------------------
+
+<button id="up">up</button> / <button id="delete">delete</button>
+<span></span>
+<br>-----------------------------------------
+
+<button>button</button>
+<p style="color:blue">jQuery API 알지오 정석</p>
+<p style=" background-color: red;color:fff">jQuery API 알지오 정석</p>
+<br>-----------------------------------------
+
+<input type="radio">
+<input type="text">
+<br>-----------------------------------------
+
+<button>button</button>
+<p></p>
+<br>-----------------------------------------
+
+<ul>
+	<li>alzio11</li>
+	<li>alzio12</li>
+	<li>alzio13</li>
+	<li>alzio14</li>
+	<li>alzio15</li>
+	<li class="al6-13">alzio16</li>
+	<li>alzio17</li>
+	<li>alzio18</li>
+</ul>
+<ul>
+	<li>alzio21</li>
+	<li class="al6-14">alzio22</li>
+	<li>alzio23</li>
+	<li>alzio24</li>
+	<li class="al6-15">alzio25</li>
+	<li>alzio26</li>
+	<li>alzio27</li>
+	<li>alzio28</li>
+</ul>
+------------------------------------------------
+<div>
+  <span>jQuery API 알지오 정석</span>
+  <p class="al6-12">jQuery API 알지오 정석</p>
+</div>
+
+<br>
+<div>jQuery API 알지오 정석</div>
+<button>버튼</button>
+
+<input type="text"> / <input type="password"> / <input>
+
+<div>jQuery API 알지오 정석</div>
+<div>
+	<span>jQuery API 알지오 정석</span>
+	<p>jQuery API 알지오 정석</p>
+</div>
+-----
+<div>
+  <p>jQuery API 알지오 정석</p>
+</div>
+
+<div style="border:3px solid #FFCC00;width:50%;position:absolute;">div 2
+	<div style="border:2px solid #FF00CC;margin:50px;background-color:#fff">div 1
+		<p>p</p>
+	</div>
+</div>
+
+<button>버튼</button>
+<br><br>
+<div>jQuery API 알지오 정석</div>
+
+<ul>
+	<li>alzio11</li>
+	<li>alzio12</li>
+	<li>alzio13</li>
+	<li>alzio14</li>
+</ul> 
+<ul>
+	<li>alzio21</li>
+	<li>alzio22</li>
+	<li>alzio23</li>
+	<li>alzio24</li>
+	<li>alzio25</li>
+</ul>
+
+<p>jQuery API 알지오 정석</p>
+<p class="al6-11">jQuery API 알지오 정석</p>
+<p>jQuery API 알지오 정석</p>
+<p>jQuery API 알지오 정석</p>
+
+<input type="text" value="jQuery API">
+<input type="text" value="알지오 정석">
+<input type="text" value="2003">
+<input type="text" value="www.alzio.co.kr">
+<div>ALZIO : </div>
+
+<div style="border:1px solid #FF00FF;">
+	<p>jQuery API 알지오 정석 div->p</p>
+	<p>jQuery API 알지오 정석 div->p</p>
+	<p>jQuery API 알지오 정석 div->p</p>
+	<p>jQuery API 알지오 정석 div->p</p>
+</div>
+
+	<p></p>
+	<p>jQuery API 알지오 정석</p>
+	<div>jQuery API 알지오 정석</div>
+	<p lang="euc-kr">jQuery API 알지오 정석</p>
+	<p>jQuery API 알지오 정석 p</p>
+	
+<ul>
+  <li>alzio 0</li>
+  <li>alzio 1</li>
+  <li>alzio 2</li>
+  <li>alzio 3</li>
+  <li>alzio 4</li>
+  <li>alzio 5</li>
+  <li>alzio 6</li>
+  <li>alzio 7</li>
+</ul>
+
+<input type="text">
+<p></p>
+
+<div>divdivdiv
+  <p>jQuery API 알지오 정석</p>
+</div>
+
+<p>p</p>
+<div id="al6-3">div id al6-3</div>
+<div class="al6-4">div class al6-4</div>
+
+<input type="button">
+<input type="reset">
+<input type="text">
+<input type="submit">
+
+<ul>
+	<li id="al6-1">al6-1</li>
+	<li id="al6-2">al6-2</li>
+	<li id="al6-3">al6-3</li>
+	<li id="al6-4">al6-4</li>
+	<li id="al6-5">al6-5</li>
+</ul>
+
+<input type="image" src="이미지 파일명.gif">
+<input type="text">
+
+<p>p</p>
+<span style="display:none;">span</span><br/>
+<div style="display:none;">div</div>
+
+<div style="border:2px solid #FF00FF;height:100px;width:100px;"></div>
+<div style="border:2px solid #FF00FF;height:100px;width:100px;"></div>
+<div style="border:2px solid #FF00FF;height:100px;width:100px;"></div>
+
+<div style="border:2px solid #FF00FF;height:500px;width:300px;"></div>
+<button>button</button>
+
+-->
+
+</body>
+</html>
