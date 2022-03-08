@@ -1,3 +1,4 @@
+
 /* Animal클래스 (패키지 inhefitance)
  * Animal의 공통적인 특징:인스턴스변수 적당히 추가
  * Animal의 공통적인 행위: 메서드 적당히 추가

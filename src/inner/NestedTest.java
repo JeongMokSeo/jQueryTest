@@ -7,6 +7,9 @@ public class NestedTest {
 		nt.makeStaticNestedObject();
 		nt.makeInnerObject();
 		nt.setButtonListener();
+		
+		
+
 	}
 
 	private void makeStaticNestedObject() {
@@ -32,7 +35,7 @@ public class NestedTest {
 		//button.onClickProcess();
 		
 		//button.setListener(new EventListener() {
-		//	public void OnClick() {     //익명클래스
+		//	public void OnClick() {
 		//		System.out.println("Auto Button Clicked");
 		//	}
 		//});
