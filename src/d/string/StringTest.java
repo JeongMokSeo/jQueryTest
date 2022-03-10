@@ -13,7 +13,10 @@ public class StringTest {
 		//obj.indexOfChk();
 		//obj.copyValueOfChk();
 		//obj.substringChk();
-		obj.splitChk();
+		//obj.splitChk();
+		//obj.trimChk();
+		//obj.formatChk();
+		obj.valueOfChk();
 		
 		//System.out.println(obj.nullCheck(null));
 	}
@@ -173,6 +176,29 @@ public class StringTest {
 		for(String t: splitArray) {
 			System.out.println(t);
 		}
+	}
+	
+	public void trimChk() {
+		String strings[] = new String[] {"a","b ", "  c", "  d  ", "e   f","  "};
+		for(String str:strings) {
+			System.out.println("[" + str +"]");
+			System.out.println("[" +str.trim() +"]");
+		}
+	}
+	
+	public void formatChk() {
+		String fTxt = "이 대역은 %s 규격으로, 최대 %d Mbps, %f %% Ghz대를 이용함";
+		//String txt = String.format(fTxt, "무선랜", 11, 2.4) ;
+		//System.out.println(txt);
+		System.out.format(fTxt, "무선랜", 11, 2.4) ;
+	}
+	
+	public void valueOfChk() {
+		byte b = 1;
+		String byte1 = String.valueOf(b);
+		String byte2 = b+ "";
+		System.out.println(byte1);
+		System.out.println(byte2);
 	}
 	
 	
