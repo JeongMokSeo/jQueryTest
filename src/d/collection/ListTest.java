@@ -95,15 +95,10 @@ public class ListTest {
 		ArrayList<String> tmp = new ArrayList<String>();
 		tmp.add("A");
 		list.removeAll(tmp);   // 모든 "A" 삭제
-		
-		
-		
-		
+				
 		for ( int i = 0 ; i < list.size(); i++) {
 			System.out.println("list.get(" +i + ")=" +  list.get(i));
-		}
-		
-		
+		}		
 	}
 	
 	public void chkStack() {
