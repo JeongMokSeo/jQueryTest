@@ -1,3 +1,21 @@
+/*
+ * 검색:  binarySearch(), min(),max(),indexOfSubList(),lastIndexOfSubList(),frequency()
+ * 정렬: sort()
+ * 순서변경: reverse(), shuffle(), swap(), rotate(), reverseOrder()
+ * 데이터 변경, 추가: fill(), replaceAll(), addAll()
+ * 데이터 복사: copy(), nCopies()
+ * 데이터 삭제: emptySet(), emptyList(), emptyMap()
+ * 데이터 추출: newSetFromMap()
+ * 데이터 비교: disjoint()
+ * 타입 변환: enumeration(), list(), asLifoQueue()
+ * 변경가능 여부 속성 변경: unmodifiable~()
+ * 쓰레드 안전여부 속성 추가: synchronized~()
+ * 데이터의 타입 안전여부 속성 추가: checked~()
+ * singleton: singleton~() 
+ * 
+ */
+
+
 package d.collection;
 
 import java.io.File;
